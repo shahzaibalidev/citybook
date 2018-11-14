@@ -10,8 +10,8 @@
             <div class="container">
                 <div class="section-title center-align">
                     <h2><span>Our News - Blog</span></h2>
-                    <div class="breadcrumbs fl-wrap"><a href="#">Home</a><span>Blog</span></div>
-                    <span class="section-separator"></span>
+                    <div class="breadcrumbs fl-wrap"><a href="<?php echo site_url()?>">Home</a><span>Blog</span></div>
+                    <!-- <span class="section-separator"></span> -->
                 </div>
             </div>
             <div class="header-sec-link">
@@ -35,7 +35,7 @@
                                     <div class="list-single-main-item-title fl-wrap">
                                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                     </div>
-                                    <p><?php echo wp_html_excerpt(get_the_excerpt(), 160, '...'); ?></p>
+                                    <p><?php echo wp_html_excerpt(get_the_excerpt(), 350, '...'); ?></p>
                                     <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
                                     <div class="post-opt">
                                         <ul>
