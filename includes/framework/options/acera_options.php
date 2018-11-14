@@ -10,45 +10,45 @@ array("type" => "section","icon" => "dashicons-admin-settings","title" => "Confi
 
 array("section" => "general", "type" => "heading","title" => "General Settings","id" => "general-config"),  
 
-array("section" => "general", "type" => "heading","title" => "Customize","id" => "style-config"),
+array("section" => "general", "type" => "heading","title" => "Logos & Images","id" => "style-config"),
 
-array("section" => "general", "type" => "heading","title" => "Advance Settings","id" => "adv-config"),
+// array("section" => "general", "type" => "heading","title" => "Advance Settings","id" => "adv-config"),
 
-array("section" => "general", "type" => "heading","title" => "Footer Settings","id" => "footer-config"),
+// array("section" => "general", "type" => "heading","title" => "Footer Settings","id" => "footer-config"),
 
-/* Home page */
-array("type" => "section","icon" => "dashicons-admin-home","title" => "Home page","id" => "homepage","expanded" => "false"),
+/* Pages */
+ array("type" => "section","icon" => "dashicons-admin-home","title" => "Pages","id" => "pages","expanded" => "false"),
 
-array("section" => "homepage", "type" => "heading","title" => "Home Modules","id" => "home-module"),
+array("section" => "pages", "type" => "heading","title" => "Home Modules","id" => "home-module"),
 
-array("section" => "homepage", "type" => "heading","title" => "Main Slider","id" => "sli-module"),
+// array("section" => "homepage", "type" => "heading","title" => "Main Slider","id" => "sli-module"),
 
-array("section" => "homepage", "type" => "heading","title" => "Suggestion Module","id" => "sugg-module"),
+// array("section" => "homepage", "type" => "heading","title" => "Suggestion Module","id" => "sugg-module"),
 
-array("section" => "homepage", "type" => "heading","title" => "Latest Movies Modules","id" => "latest-mov"),
+// array("section" => "homepage", "type" => "heading","title" => "Latest Movies Modules","id" => "latest-mov"),
 
-array("section" => "homepage", "type" => "heading","title" => "Latest TV Series Modules","id" => "latest-tv"),
+// array("section" => "homepage", "type" => "heading","title" => "Latest TV Series Modules","id" => "latest-tv"),
 
-array("section" => "homepage", "type" => "heading","title" => "Latest Episodes Modules","id" => "latest-ep"),
+// array("section" => "homepage", "type" => "heading","title" => "Latest Episodes Modules","id" => "latest-ep"),
 
-array("section" => "homepage", "type" => "heading","title" => "Additional Modules","id" => "additional-modules"),
+// array("section" => "homepage", "type" => "heading","title" => "Additional Modules","id" => "additional-modules"),
 
 /* SEO */
-array("type" => "section","icon" => "dashicons-chart-area","title" => "SEO","id" => "seo-config","expanded" => "false"),
+// array("type" => "section","icon" => "dashicons-chart-area","title" => "SEO","id" => "seo-config","expanded" => "false"),
 
 array("section" => "seo-config", "type" => "heading","title" => "Basic Settings","id" => "seo-config"),
 
 array("section" => "seo-config", "type" => "heading","title" => "Site Verification","id" => "verify-config"),
 
 /* Tools */
-array("type" => "section","icon" => "dashicons-admin-tools","title" => "Tools","id" => "general2","expanded" => "false"),
+// array("type" => "section","icon" => "dashicons-admin-tools","title" => "Tools","id" => "general2","expanded" => "false"),
 
 array("section" => "general2", "type" => "heading","title" => "Minify HTML","id" => "minify-config"),
 
 array("section" => "general2", "type" => "heading","title" => "Code Integrations","id" => "dev-config"),
 
 /* Mail Settings */
-array("type" => "section","icon" => "dashicons-email-alt","title" => "Mail Settings","id" => "mails","expanded" => "false"),
+// array("type" => "section","icon" => "dashicons-email-alt","title" => "Mail Settings","id" => "mails","expanded" => "false"),
 
 array("section" => "mails", "type" => "heading","title" => "Report Settings","id" => "rprt-config"),
 
@@ -834,17 +834,16 @@ array(
 
 	// Style Settings
 	
-	array(
+	/*array(
     "under_section" => "style-config", //Required
     "type" => "radio", //Required
     "name" => __( "Default Style", "citybook" ), //Required
     "id" => "cb-default-style", //Required
     "display_checkbox_id" => "toggle_checkbox_id",
     "options" => array("light" => __('Light','citybook'), "dark" => __('Dark','citybook')), //Required
-    "default" => "light"
-),
+    "default" => "light"),*/
 
-array(
+/*array(
     "under_section" => "style-config", //Required
     "type" => "checkbox", //Required
     "name" => __( "More Options", "citybook" ), //Required
@@ -852,7 +851,7 @@ array(
     "display_checkbox_id" => "toggle_checkbox_id",
     "options" => array (__( "Rounded Corners (Posters)", "citybook" ),__( "Border Effect (Posters)", "citybook" )), //Required
 	"default" => array("not", "not")
-),	
+),	*/
 	
 /*array(
 
@@ -900,12 +899,12 @@ array(
 
 ),*/
 
-array(
+/*array(
 
     "under_section" => "style-config",
     "type" => "small_heading",
     "title" => __("Logos & Images", "citybook"),
-),	
+),	*/
 
 array(
     "under_section" => "style-config",
