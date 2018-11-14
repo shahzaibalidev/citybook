@@ -40,8 +40,8 @@
                                     <div class="post-opt">
                                         <ul>
                                             <li><i class="fa fa-calendar-check-o"></i> <span><?php echo get_the_date('d F Y'); ?></span></li>
-                                            <li><i class="fa fa-eye"></i> <span>264</span></li>
-                                            <li><i class="fa fa-tags"></i> <a href="#">Photography</a> , <a href="#">Design</a> </li>
+                                            <li><i class="fa fa-eye"></i> <span><?php echo getPostViews(get_the_ID()); ?></span></li>
+                                            <li><i class="fa fa-tags"></i> <?php the_category(' , '); ?> </li>
                                         </ul>
                                     </div>
                                     <span class="fw-separator"></span>
@@ -49,15 +49,10 @@
                                         <h3>Tags</h3>
                                     </div>
                                     <div class="list-single-tags tags-stylwrap blog-tags">
-                                        <a href="#">Event</a>
-                                        <a href="#">Conference</a>
-                                        <a href="#">Strategies</a>
-                                        <a href="#">Trends</a>
-                                        <a href="#">Schedule</a>
-                                        <a href="#">Speak</a>                                                                               
+                                        <?php the_tags( '','',''); ?>
                                     </div>
                                     <span class="fw-separator"></span>
-                                    <a href="blog-single.html" class="btn transparent-btn float-btn">Read more<i class="fa fa-eye"></i></a>
+                                    <a href="<?php the_permalink(); ?>" class="btn transparent-btn float-btn">Read more<i class="fa fa-eye"></i></a>
                                 </div>
                             </article>
                             <span class="section-separator"></span>
@@ -236,7 +231,7 @@
         <div class="limit-box fl-wrap"></div>
         <section class="gradient-bg">
             <div class="cirle-bg">
-                <div class="bg" data-bg="images/bg/circle.png"></div>
+                <div class="bg" data-bg="<?php echo get_template_directory_uri(); ?>/assets/images/bg/circle.png"></div>
             </div>
             <div class="container">
                 <div class="join-wrap fl-wrap">
