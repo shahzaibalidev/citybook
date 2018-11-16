@@ -29,7 +29,35 @@
                             <!-- article> --> 
                             <article>
                                 <div class="list-single-main-media fl-wrap">
-                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/all/9.jpg" alt=""></a>
+                                    <?php     $post_url = get_the_permalink();
+    $images = get_post_meta($post->ID, 'vdw_gallery_id', true);
+    $imageq = sizeof($images);
+
+    if($imageq == 1){
+        if(!is_single()) { echo '<a href="'.$post_url.'">';}
+
+        foreach ($images as $image) {
+          echo wp_get_attachment_image($image, array('579', '450'));
+        }
+        
+        if(!is_single()) { echo '</a>'; }
+    }else{
+
+      echo '<div class="single-slider-wrapper fl-wrap">
+              <div class="single-slider fl-wrap">';
+
+              foreach ($images as $image) {
+                if(!is_single()) { echo '<a href="'.$post_url.'">'; }
+                echo wp_get_attachment_image($image, array('579', '450'));
+                if(!is_single()) { echo '</a>';}
+              }
+
+        echo '</div>
+              <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
+              <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
+            </div>';
+
+    } ?>
                                 </div>
                                 <div class="list-single-main-item fl-wrap">
                                     <div class="list-single-main-item-title fl-wrap">

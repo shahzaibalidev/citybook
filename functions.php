@@ -1,4 +1,6 @@
 <?php
+require 'includes/gallery-metabox/gallery.php';
+
 function citybook_style(){
 
   /*CSS Start*/
@@ -17,6 +19,8 @@ function citybook_style(){
 }
 
 add_action('wp_enqueue_scripts','citybook_style');
+
+add_theme_support('post-thumbnails');
 
 include_once get_template_directory(). '/includes/framework/options-init.php';
 
@@ -55,4 +59,8 @@ function setPostViews($postID) {
     }
 }
 /* Post Views Number END */
+
+
+
+
 ?>
