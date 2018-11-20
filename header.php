@@ -19,7 +19,8 @@
                 <div class="header-inner">
                     <div class="logo-holder">
                     	<?php $logo = get_option('cb-light-logo'); ?>
-                        <a href="<?php echo site_url()?>"><img src="<?php echo $logo; ?>" alt=""></a>
+
+                        <a href="<?php echo site_url(); ?>"><img src="<?php echo $logo; ?>" alt=""></a>
                     </div>
                     <div class="header-search vis-header-search">
                         <div class="header-search-input-item">
@@ -47,22 +48,25 @@
                         </div>
                     </div>
                     <!-- nav-button-wrap end-->
+                    <?php
+                    $actlink = 'act-link';
+                    $acthome = '';
+                    $actnews = '';
+                    if(is_home()){
+                        $actnews = $actlink;
+                    }elseif(is_front_page()){
+                        $acthome = $actlink;
+                    }else{
+                        $actnews = $actlink;
+                    }
+                    ?>
                     <!--  navigation --> 
                     <div class="nav-holder main-menu">
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="#">Home <i class="fa fa-caret-down"></i></a>
-                                    <!--second level -->   
-                                    <ul>
-                                        <li><a href="index.html">Parallax Image</a></li>
-                                        <li><a href="index2.html">Video</a></li>
-                                        <li><a href="index3.html">Map</a></li>
-                                        <li><a href="index4.html">Slideshow</a></li>
-                                        <li><a href="index5.html">Slider</a></li>
-										<li><a href="index6.html">Fullscreen Slider</a></li>
-                                    </ul>
-                                    <!--second level end-->
+                                    <a href="<?php echo site_url(); ?>" class="<?php echo $acthome; ?>">Home</a>
+                                    
                                 </li>
                                 <li>
                                     <a href="#">Listings <i class="fa fa-caret-down"></i></a>
@@ -89,7 +93,7 @@
                                     <!--second level end-->
                                 </li>
                                 <li>
-                                    <a href="blog.html" class="act-link">News</a>
+                                    <a href="<?php echo get_post_type_archive_link( 'post' ); ?>" class="<?php echo $actnews; ?>">News</a>
                                 </li>
                                 <li>
                                     <a href="#">Pages <i class="fa fa-caret-down"></i></a>

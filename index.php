@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="section-title center-align">
                     <h2><span>Our News - Blog</span></h2>
-                    <div class="breadcrumbs fl-wrap"><a href="<?php echo site_url()?>">Home</a><span>Blog</span></div>
+                    <div class="breadcrumbs fl-wrap"><a href="<?php echo site_url(); ?>">Home</a><span>News</span></div>
                     <!-- <span class="section-separator"></span> -->
                 </div>
             </div>
@@ -29,35 +29,37 @@
                             <!-- article> --> 
                             <article>
                                 <div class="list-single-main-media fl-wrap">
-                                    <?php     $post_url = get_the_permalink();
-    $images = get_post_meta($post->ID, 'vdw_gallery_id', true);
-    $imageq = sizeof($images);
+                                   <?php 
+                                    $post_url = get_the_permalink();
+                                    $images = get_post_meta($post->ID, 'fslider_id', true);
+                                    $imageq = sizeof($images);
 
-    if($imageq == 1){
-        if(!is_single()) { echo '<a href="'.$post_url.'">';}
+                                    if($imageq == 1){
+                                        echo '<a href="'.$post_url.'">';
 
-        foreach ($images as $image) {
-          echo wp_get_attachment_image($image, array('579', '450'));
-        }
-        
-        if(!is_single()) { echo '</a>'; }
-    }else{
+                                        foreach ($images as $image) {
+                                          echo wp_get_attachment_image($image, array('579', '450'));
+                                        }
+                                        
+                                        echo '</a>';
+                                    }else{
 
-      echo '<div class="single-slider-wrapper fl-wrap">
-              <div class="single-slider fl-wrap">';
+                                      echo '<div class="single-slider-wrapper fl-wrap">
+                                              <div class="single-slider fl-wrap">';
 
-              foreach ($images as $image) {
-                if(!is_single()) { echo '<a href="'.$post_url.'">'; }
-                echo wp_get_attachment_image($image, array('579', '450'));
-                if(!is_single()) { echo '</a>';}
-              }
+                                              foreach ($images as $image) {
+                                                echo '<a href="'.$post_url.'">';
+                                                echo wp_get_attachment_image($image, array('579', '450'));
+                                                echo '</a>';
+                                              }
 
-        echo '</div>
-              <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
-              <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
-            </div>';
+                                        echo '</div>
+                                              <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
+                                              <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
+                                            </div>';
 
-    } ?>
+                                    } ?>
+                                        
                                 </div>
                                 <div class="list-single-main-item fl-wrap">
                                     <div class="list-single-main-item-title fl-wrap">

@@ -10,7 +10,7 @@ array("type" => "section","icon" => "dashicons-admin-settings","title" => "Confi
 
 array("section" => "general", "type" => "heading","title" => "General Settings","id" => "general-config"),  
 
-array("section" => "general", "type" => "heading","title" => "Logos & Images","id" => "style-config"),
+//array("section" => "general", "type" => "heading","title" => "Logos & Images","id" => "style-config"),
 
 // array("section" => "general", "type" => "heading","title" => "Advance Settings","id" => "adv-config"),
 
@@ -89,9 +89,343 @@ array("section" => "mails", "type" => "heading","title" => "SMTP Settings","id" 
 /* array("section" => "general2", "type" => "heading","title" => "External Link Page","id" => "link-config"), */
 
 
+/*=================================== General Settings ============================================*/
+array(
+    "under_section" => "general-config", //Required
+    "type" => "checkbox", //Required
+    "name" => "Basic Tools", //Required
+    "id" => array("bcontrols_admin_bar"), //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "options" => array ("Admin Bar"), //Required
+    "default" => array("not")
+    
+),
+array (
+    "under_section" => "general-config",
+    "type" => "small_heading",
+    "title" => "Logos",
+),
+array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("Upload favicon","citybook"),
+    "name" => __("Site Favicon","citybook"), //Required
+    "id" => "general-favicon", //Required
+    "desc" => __("Add favicon, Recommended in .ico format","citybook"),
+    "default" => ""),
+
+array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("Site Logo - Dark Colored Text","citybook"),
+    "name" => __("Logo (Light)","citybook"), //Required
+    "id" => "cb-light-logo", //Required
+    "desc" => __("Replace site's dark logo for light bg. Required dimension's 374px * 98px ","citybook"),
+    "default" => ""),
+array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("Site Logo - Light Colored Text","citybook"),
+    "name" => __("Logo (Dark)","citybook"), //Required
+    "id" => "cb-dark-logo", //Required
+    "desc" => __("Replace site's light logo for dark bg. Required dimension's 374px * 98px ","citybook"),
+    "default" => ""),
+    array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("Footer Logo","citybook"),
+    "name" => __("Footer Logo","citybook"), //Required
+    "id" => "cb-footer-logo", //Required
+    "desc" => __("Replace footer's logo. Required dimension's 300px * 80px ","citybook"),
+    "default" => ""),   
+array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("wp-admin Logo","citybook"),
+    "name" => __("Admin Logo","citybook"), //Required
+    "id" => "wpadmin-logo", //Required
+    "desc" => __("Replace wp-admin logo. Required dimension's 300px * 80px ","citybook"),
+    "default" => ""),
+array(
+    "under_section" => "general-config",
+    "type" => "image", //Required
+    "placeholder" => __("wp-admin Logo","citybook"),
+    "name" => __("Facebook Capture Image","citybook"), //Required
+    "id" => "fbcapture-image", //Required
+    "desc" => __("Replace the image that facebook will capture. Required dimension's 800px * 420px ","citybook"),
+    "default" => ""),
 
 
-// SMTP Settings
+/*array(
+    "under_section" => "general-config", //Required
+    "type" => "radio", //Required
+    "name" => "Night Mode Switch", //Required
+    "id" => "night-mode", //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "options" => array("true" => "Enable", "false" => "Disable"), //Required
+    "desc" => "Let user switch from light to dark scheme.",
+    "default" => "true"
+),*/
+
+/*array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "text", //Required
+
+    "name" => "Google Analytics", //Required
+
+    "id" => "analitica", //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "desc" => "Insert tracking code to use this function.",
+
+    "placeholder" => "UA-00000000-00",
+
+),*/
+
+
+
+
+/*array(
+    "under_section" => "general-config", //Required
+    "type" => "radio", //Required
+    "name" => "User Registration", //Required
+    "id" => "user-reg-check", //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "options" => array("enable" => "Enable", "disable" => "Disable"), //Required
+    "default" => "disable",
+), */
+
+
+
+
+
+/*array (
+    "under_section" => "general-config",
+    "type" => "small_heading",
+    "title" => "reCaptcha Settings",
+),*/
+
+
+/*array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "text", //Required
+
+    "name" => "Public Key", //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "public_key_rcth", //Required
+
+    "placeholder" => "9Be3-7FGUUUUUUKC5Vx_IFxfkUaDHLZifBI0-kij",
+
+    "desc" => "Get your key here - <a href=\"https://www.google.com/recaptcha/admin\" target=\"_blank\">Google reCAPTCHA</a>.",
+    "default" => ""
+
+),*/
+
+/*array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "text", //Required
+
+    "name" => "Private Key", //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "private_key_rcth", //Required
+
+    "placeholder" => "9Be3-7FGUUUUUFSKhhqv3kozQDlqJo90sfOnvQNs",
+
+    "desc" => "Get your key here - <a href=\"https://www.google.com/recaptcha/admin\" target=\"_blank\">Google reCAPTCHA</a>.",
+
+
+),*/
+
+
+
+
+    /*array(
+    "under_section" => "general-config", 
+    "type" => "small_heading", 
+    "title" => "Favorites Settings",
+),*/
+
+/*array(
+
+    "under_section" => "general-config",
+
+    "type" => "checkbox",
+
+    "name" => __("Favorite System", "citybook"),
+
+    "id" => array("favorite-settings"),
+
+    "options" => array( __("Activate","citybook") ), 
+
+    "desc" => __("Activate to enable this function", "citybook"),
+
+    "default" => array("checked"),
+
+),*/
+
+
+/*array(
+    "under_section" => "general-config", //Required
+    "type" => "radio", //Required
+    "name" => "Allowed to rate", //Required
+    "id" => "fav-allow-settings", //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "options" => array("1" => "Logged-in Users Only", "2" => "Guests & Logged-in Users"), //Required
+    "default" => "1"
+),*/
+
+
+
+/*array (
+    "under_section" => "general-config",
+    "type" => "small_heading",
+    "title" => __( "Social Buttons", "citybook" ),
+),
+
+
+
+array(
+    "under_section" => "general-config", //Required
+    "type" => "checkbox", //Required
+    "name" => __( "Enable or Disable", "citybook" ), //Required
+    "id" => array("homes-social", "sli-social", "mov-social","tv-social","ep-social", "article-social", "page-social"), //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "options" => array ("Homepage Search", "Featured Slider", "Movie Page", "TV Series Page", "Episode Page", "Article Page", "Single Page"), //Required
+    "default" => array("checked", "checked", "checked", "checked", "checked", "checked", "checked")
+    
+),
+
+array(
+    "under_section" => "general-config", //Required
+    "type" => "text", //Required
+    "name" => "AddThis ID", //Required
+    "display_checkbox_id" => "toggle_checkbox_id",
+    "id" => "sli-social-id", //Required
+    "placeholder" => "58afa5de7221535f",
+    "desc" => __("Example: ra-<span style='font-weight:bold;color:red;'>58afa5de7221535f</span> | <a href='#' target='_blank'>Click here</a> to watch on how to setup an addthis.com codes and get your id.","citybook"),
+),
+
+array(
+    "under_section" => "general-config", //Required
+    "type" => "text", //Required
+    "name" => __( "Featured Slider - Social Message", "citybook" ), //Required
+    "id" => "sli-social-message", //Required
+    "default" => __( "Like and Share our website to support us.", "citybook" )
+),
+
+
+
+array (
+    "under_section" => "general-config",
+    "type" => "small_heading",
+    "title" => __( "Related Module", "citybook" ),
+),
+
+array(
+    "under_section" => "general-config",
+    "type" => "checkbox",
+    "name" => __("Related Movies", "citybook"),
+    "id" => array("widget_related_mov"),
+    "options" => array( __("Enable widget related movies?","citybook"), ), 
+    "desc" => __("Check to activate the function.", "citybook"),
+    "default" => array("checked")),
+    
+array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "text", //Required
+
+    "name" => __("Related Movies - Title", "citybook"), //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "related-movie-title", //Required
+
+    "desc" => __("Leave blank to use default.", "citybook"),
+    
+    "placeholder" => __( "You May Also Like", "citybook" )
+),
+array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "select", //Required
+
+    "name" => __("Related Movies Amount", "citybook"), //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "related-movie", //Required
+
+    "options" => array("6", "12", "18", "24"), //Required
+
+    "desc" => __("select the number of items to display on the slider boxes", "citybook"),
+
+    "default" => "12"
+),
+array(
+    "under_section" => "general-config",
+    "type" => "checkbox",
+    "name" => __("Related TV Series", "citybook"),
+    "id" => array("widget_related_tv"),
+    "options" => array( __("Enable widget related tv series?","citybook"), ), 
+    "desc" => __("Check to activate the function.", "citybook"),
+    "default" => array("checked")
+),
+array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "select", //Required
+
+    "name" => __("Related TV Series", "citybook"), //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "related-tv", //Required
+
+    "options" => array("6", "12", "18", "24"), //Required
+
+    "desc" => __("select the number of items to display on the slider boxes", "citybook"),
+
+    "default" => "12"
+),
+
+array(
+
+    "under_section" => "general-config", //Required
+
+    "type" => "text", //Required
+
+    "name" => __("Related Movies - Title", "citybook"), //Required
+
+    "display_checkbox_id" => "toggle_checkbox_id",
+
+    "id" => "related-tv-title", //Required
+
+    "desc" => __("Leave blank to use default.", "citybook"),
+    
+    "placeholder" => __( "You May Also Like", "citybook" )
+),*/
+
+
+/*=================================== General Settings END ============================================*/
+
+/*=================================== SMTP Settings ============================================*/
+
+
 array(
     "under_section" => "smtp-config",
     "type" => "tips",
@@ -151,7 +485,7 @@ array(
 ),
 
 
-
+/*=================================== SMTP Settings END ============================================*/
 
 
 // Request Settings
@@ -366,282 +700,7 @@ array(
 
 
 
-// General Settings 
 
-array(
-    "under_section" => "general-config", //Required
-    "type" => "checkbox", //Required
-    "name" => "Basic Tools", //Required
-	"id" => array("bcontrols_admin_bar"), //Required
-    "display_checkbox_id" => "toggle_checkbox_id",
-    "options" => array ("Admin Bar"), //Required
-    "default" => array("not")
-	
-),
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "radio", //Required
-    "name" => "Night Mode Switch", //Required
-    "id" => "night-mode", //Required
-    "display_checkbox_id" => "toggle_checkbox_id",
-    "options" => array("true" => "Enable", "false" => "Disable"), //Required
-    "desc" => "Let user switch from light to dark scheme.",
-    "default" => "true"
-),
-
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "text", //Required
-
-    "name" => "Google Analytics", //Required
-
-    "id" => "analitica", //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "desc" => "Insert tracking code to use this function.",
-
-    "placeholder" => "UA-00000000-00",
-
-),
-
-
-
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "radio", //Required
-    "name" => "User Registration", //Required
-    "id" => "user-reg-check", //Required
-    "display_checkbox_id" => "toggle_checkbox_id",
-    "options" => array("enable" => "Enable", "disable" => "Disable"), //Required
-    "default" => "disable",
-), 
-
-
-
-
-
-array (
-	"under_section" => "general-config",
-	"type" => "small_heading",
-	"title" => "reCaptcha Settings",
-),
-
-
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "text", //Required
-
-    "name" => "Public Key", //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "public_key_rcth", //Required
-
-    "placeholder" => "9Be3-7FGUUUUUUKC5Vx_IFxfkUaDHLZifBI0-kij",
-
-    "desc" => "Get your key here - <a href=\"https://www.google.com/recaptcha/admin\" target=\"_blank\">Google reCAPTCHA</a>.",
-    "default" => ""
-
-),
-
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "text", //Required
-
-    "name" => "Private Key", //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "private_key_rcth", //Required
-
-    "placeholder" => "9Be3-7FGUUUUUFSKhhqv3kozQDlqJo90sfOnvQNs",
-
-    "desc" => "Get your key here - <a href=\"https://www.google.com/recaptcha/admin\" target=\"_blank\">Google reCAPTCHA</a>.",
-
-
-),
-
-
-
-
-	array(
-    "under_section" => "general-config", 
-    "type" => "small_heading", 
-    "title" => "Favorites Settings",
-),
-
-array(
-
-    "under_section" => "general-config",
-
-    "type" => "checkbox",
-
-    "name" => __("Favorite System", "citybook"),
-
-    "id" => array("favorite-settings"),
-
-    "options" => array( __("Activate","citybook") ), 
-
-    "desc" => __("Activate to enable this function", "citybook"),
-
-    "default" => array("checked"),
-
-),
-
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "radio", //Required
-    "name" => "Allowed to rate", //Required
-    "id" => "fav-allow-settings", //Required
-    "display_checkbox_id" => "toggle_checkbox_id",
-    "options" => array("1" => "Logged-in Users Only", "2" => "Guests & Logged-in Users"), //Required
-    "default" => "1"
-),
-
-
-
-array (
-	"under_section" => "general-config",
-	"type" => "small_heading",
-	"title" => __( "Social Buttons", "citybook" ),
-),
-
-
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "checkbox", //Required
-    "name" => __( "Enable or Disable", "citybook" ), //Required
-	"id" => array("homes-social", "sli-social", "mov-social","tv-social","ep-social", "article-social", "page-social"), //Required
-    "display_checkbox_id" => "toggle_checkbox_id",
-    "options" => array ("Homepage Search", "Featured Slider", "Movie Page", "TV Series Page", "Episode Page", "Article Page", "Single Page"), //Required
-    "default" => array("checked", "checked", "checked", "checked", "checked", "checked", "checked")
-	
-),
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "text", //Required
-    "name" => "AddThis ID", //Required
-	"display_checkbox_id" => "toggle_checkbox_id",
-    "id" => "sli-social-id", //Required
-    "placeholder" => "58afa5de7221535f",
-	"desc" => __("Example: ra-<span style='font-weight:bold;color:red;'>58afa5de7221535f</span> | <a href='#' target='_blank'>Click here</a> to watch on how to setup an addthis.com codes and get your id.","citybook"),
-),
-
-array(
-    "under_section" => "general-config", //Required
-    "type" => "text", //Required
-    "name" => __( "Featured Slider - Social Message", "citybook" ), //Required
-    "id" => "sli-social-message", //Required
-    "default" => __( "Like and Share our website to support us.", "citybook" )
-),
-
-
-
-array (
-	"under_section" => "general-config",
-	"type" => "small_heading",
-	"title" => __( "Related Module", "citybook" ),
-),
-
-array(
-    "under_section" => "general-config",
-    "type" => "checkbox",
-    "name" => __("Related Movies", "citybook"),
-    "id" => array("widget_related_mov"),
-    "options" => array( __("Enable widget related movies?","citybook"), ), 
-    "desc" => __("Check to activate the function.", "citybook"),
-    "default" => array("checked")),
-	
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "text", //Required
-
-    "name" => __("Related Movies - Title", "citybook"), //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "related-movie-title", //Required
-
-    "desc" => __("Leave blank to use default.", "citybook"),
-	
-	"placeholder" => __( "You May Also Like", "citybook" )
-),
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "select", //Required
-
-    "name" => __("Related Movies Amount", "citybook"), //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "related-movie", //Required
-
-    "options" => array("6", "12", "18", "24"), //Required
-
-    "desc" => __("select the number of items to display on the slider boxes", "citybook"),
-
-    "default" => "12"
-),
-array(
-    "under_section" => "general-config",
-    "type" => "checkbox",
-    "name" => __("Related TV Series", "citybook"),
-    "id" => array("widget_related_tv"),
-    "options" => array( __("Enable widget related tv series?","citybook"), ), 
-    "desc" => __("Check to activate the function.", "citybook"),
-    "default" => array("checked")
-),
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "select", //Required
-
-    "name" => __("Related TV Series", "citybook"), //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "related-tv", //Required
-
-    "options" => array("6", "12", "18", "24"), //Required
-
-    "desc" => __("select the number of items to display on the slider boxes", "citybook"),
-
-    "default" => "12"
-),
-
-array(
-
-    "under_section" => "general-config", //Required
-
-    "type" => "text", //Required
-
-    "name" => __("Related Movies - Title", "citybook"), //Required
-
-    "display_checkbox_id" => "toggle_checkbox_id",
-
-    "id" => "related-tv-title", //Required
-
-    "desc" => __("Leave blank to use default.", "citybook"),
-	
-	"placeholder" => __( "You May Also Like", "citybook" )
-),
 
 // TMDb Settings
 
@@ -906,54 +965,8 @@ array(
     "title" => __("Logos & Images", "citybook"),
 ),	*/
 
-array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("Upload favicon","citybook"),
-    "name" => __("Site Favicon","citybook"), //Required
-    "id" => "general-favicon", //Required
-    "desc" => __("Add favicon, Recommended in .ico format","citybook"),
-    "default" => ""),
-array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("Site Logo - Dark Colored Text","citybook"),
-    "name" => __("Logo (Light)","citybook"), //Required
-    "id" => "cb-light-logo", //Required
-    "desc" => __("Replace site's dark logo for light bg. Required dimension's 374px * 98px ","citybook"),
-    "default" => ""),
-array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("Site Logo - Light Colored Text","citybook"),
-    "name" => __("Logo (Dark)","citybook"), //Required
-    "id" => "cb-dark-logo", //Required
-    "desc" => __("Replace site's light logo for dark bg. Required dimension's 374px * 98px ","citybook"),
-    "default" => ""),
-	array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("Footer Logo","citybook"),
-    "name" => __("Footer Logo","citybook"), //Required
-    "id" => "cb-footer-logo", //Required
-    "desc" => __("Replace footer's logo. Required dimension's 300px * 80px ","citybook"),
-    "default" => ""),	
-array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("wp-admin Logo","citybook"),
-    "name" => __("Admin Logo","citybook"), //Required
-    "id" => "wpadmin-logo", //Required
-    "desc" => __("Replace wp-admin logo. Required dimension's 300px * 80px ","citybook"),
-    "default" => ""),
-array(
-    "under_section" => "style-config",
-    "type" => "image", //Required
-    "placeholder" => __("wp-admin Logo","citybook"),
-    "name" => __("Facebook Capture Image","citybook"), //Required
-    "id" => "fbcapture-image", //Required
-    "desc" => __("Replace the image that facebook will capture. Required dimension's 800px * 420px ","citybook"),
-    "default" => ""),
+
+
 		
 	// Site Notice
 

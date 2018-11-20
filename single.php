@@ -17,12 +17,12 @@ setPostViews(get_the_ID());
                 <div class="content">
                     <!--section -->
                     <section class="parallax-section" data-scrollax-parent="true">
-                        <div class="bg par-elem "  data-bg="images/bg/23.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="bg par-elem "  data-bg="<?php the_post_thumbnail_url(); ?>" data-scrollax="properties: { translateY: '30%' }"></div>
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="section-title center-align">
-                                <h2><span>Blog Post Title</span></h2>
-                                <div class="breadcrumbs fl-wrap"><a href="#">Home</a><a href="#">Blog</a><span>Blog Single</span></div>
+                                <h2><span><?php the_title(); ?></span></h2>
+                                <div class="breadcrumbs fl-wrap"><a href="<?php echo site_url(); ?>">Home</a><a href="<?php echo get_post_type_archive_link( 'post' ); ?>">News</a><span><?php the_title(); ?></span></div>
                                 <!-- <span class="section-separator"></span> -->
                             </div>
                         </div>
@@ -40,65 +40,55 @@ setPostViews(get_the_ID());
                                         <!-- article> --> 
                                         <article>
                                             <div class="list-single-main-media fl-wrap">
-                                                <?php     $post_url = get_the_permalink();
-    $images = get_post_meta($post->ID, 'vdw_gallery_id', true);
-    $imageq = sizeof($images);
+                                                <?php
+                                                	$post_url = get_the_permalink();
+												    $images = get_post_meta($post->ID, 'fslider_id', true);
+												    $imageq = sizeof($images);
 
-    if($imageq == 1){
-        if(!is_single()) { echo '<a href="'.$post_url.'">';}
+												    if($imageq == 1){
+												        
+												        foreach ($images as $image) {
+												          echo wp_get_attachment_image($image, array('579', '450'));
+												        }
+												        
+												        
+												    }else{
 
-        foreach ($images as $image) {
-          echo wp_get_attachment_image($image, array('579', '450'));
-        }
-        
-        if(!is_single()) { echo '</a>'; }
-    }else{
+												      echo '<div class="single-slider-wrapper fl-wrap">
+												              <div class="single-slider fl-wrap">';
 
-      echo '<div class="single-slider-wrapper fl-wrap">
-              <div class="single-slider fl-wrap">';
+												              foreach ($images as $image) {
+												                
+												                echo wp_get_attachment_image($image, array('579', '450'));
+												          
+												              }
 
-              foreach ($images as $image) {
-                if(!is_single()) { echo '<a href="'.$post_url.'">'; }
-                echo wp_get_attachment_image($image, array('579', '450'));
-                if(!is_single()) { echo '</a>';}
-              }
+												        echo '</div>
+												              <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
+												              <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
+												            </div>';
 
-        echo '</div>
-              <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
-              <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
-            </div>';
-
-    } ?>
+												    } ?>
                                             </div>
                                             <div class="list-single-main-item fl-wrap">
                                                 <div class="list-single-main-item-title fl-wrap">
-                                                    <h3>Aliquam erat volutpat. Curabitur convallis.</h3>
+                                                    <h3><?php the_title(); ?></h3>
                                                 </div>
-                                                <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
-                                                </p>
-                                                <p>Ut nec hinc dolor possim. An eros argumentum vel, elit diceret duo eu, quo et aliquid ornatus delicatissimi. Cu nam tale ferri utroque, eu habemus albucius mel, cu vidit possit ornatus eum. Eu ius postulant salutatus definitionem,  explicari. Graeci viderer qui ut, at habeo facer solet usu. Pri choro pertinax indoctum ne, ad partiendo persecuti forensibus est.</p>
-                                                <blockquote>
-                                                    <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
-                                                </blockquote>
-                                                <p>Ut nec hinc dolor possim. An eros argumentum vel, elit diceret duo eu, quo et aliquid ornatus delicatissimi. Cu nam tale ferri utroque, eu habemus albucius mel, cu vidit possit ornatus eum. Eu ius postulant salutatus definitionem, an e trud erroribus explicari. Graeci viderer qui ut, at habeo facer solet usu. Pri choro pertinax indoctum ne, ad partiendo persecuti forensibus est.</p>
-                                                <div class="post-author"><a href="#"><img src="images/avatar/4.jpg" alt=""><span>By , Alisa Noory</span></a></div>
+                                                <p><?php the_content(); ?></p>
+                                                <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
                                                 <div class="post-opt">
                                                     <ul>
-                                                        <li><i class="fa fa-calendar-check-o"></i> <span>25 April 2018</span></li>
-                                                        <li><i class="fa fa-eye"></i> <span>264</span></li>
-                                                        <li><i class="fa fa-tags"></i> <a href="#">Photography</a> , <a href="#">Design</a> </li>
-                                                    </ul>
+			                                            <li><i class="fa fa-calendar-check-o"></i> <span><?php echo get_the_date('d F Y'); ?></span></li>
+			                                            <li><i class="fa fa-eye"></i> <span><?php echo getPostViews(get_the_ID()); ?></span></li>
+			                                            <li><i class="fa fa-tags"></i> <?php the_category(' , '); ?> </li>
+			                                        </ul>
                                                 </div>
                                                 <span class="fw-separator"></span>
                                                 <div class="list-single-main-item-title fl-wrap">
                                                     <h3>Tags</h3>
                                                 </div>
                                                 <div class="list-single-tags tags-stylwrap blog-tags">
-                                                    <a href="#">Event</a>
-                                                    <a href="#">Conference</a>
-                                                    <a href="#">Strategies</a>
-                                                    <a href="#">Trends</a>
+                                                    <?php the_tags( '','',''); ?>
                                                 </div>
                                                 <div class="share-holder hid-share">
                                                     <div class="showshare"><span>Share </span><i class="fa fa-share"></i></div>
@@ -106,13 +96,44 @@ setPostViews(get_the_ID());
                                                 </div>
                                                 <span class="fw-separator"></span>
                                                 <div class="post-nav fl-wrap">
-                                                    <a href="#" class="post-link prev-post-link"><i class="fa fa-angle-left"></i>Prev <span class="clearfix">The Sign of Experience</span></a>
+                                                	<?php 
+													if($prevPost) {?>
+													<a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="post-link prev-post-link"><i class="fa fa-angle-left"></i>Prev <span class="clearfix">The Sign of Experience</span></a>
+                                                    <?php } $nextPost = get_next_post();
+													if($nextPost){ ?>
                                                     <a href="#" class="post-link next-post-link"><i class="fa fa-angle-right"></i>Next<span class="clearfix">Dedicated to Results</span></a>
+                                                	<?php } ?>
                                                 </div>
                                             </div>
                                         </article>
                                         <!-- article end -->       
                                         <span class="section-separator"></span>
+                                        <!-- list-single-main-item -->   
+                                        <!-- list-single-main-item -->   
+                                        <div class="list-single-main-item fl-wrap">
+                                        <div class="list-single-main-item-title fl-wrap">
+                                            <h3>Author</h3>
+                                        </div>
+                                        <div class="post-author post-author-block clearfix">
+                                            <div class="author-img">
+                                                <img  src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>"  alt=""/> 
+                                            </div>
+                                            <div class="author-content">
+                                                <h5><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><?php the_author_meta( 'display_name' ); ?></a></h5>
+                                                <p><?php the_author_meta('description'); ?></p>
+                                                <div class="author-social">
+                                                    <ul>
+                                                        <li><a title="Follow on Twitter" href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a title="Like on Facebook" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a title="Circle on Google Plus" href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a title="Be Friend on Linkedin" href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a title="Follow on Instagram" href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- list-single-main-item end -->
                                         <!-- list-single-main-item -->   
                                         <div class="list-single-main-item fl-wrap" id="sec4">
                                             <div class="list-single-main-item-title fl-wrap">
@@ -217,13 +238,13 @@ setPostViews(get_the_ID());
                                             </div>
                                             <div class="box-widget list-author-widget">
                                                 <div class="list-author-widget-header shapes-bg-small  color-bg fl-wrap">
-                                                    <span class="list-author-widget-link"><a href="author-single.html">Alisa Noory</a></span>
-                                                    <img src="images/avatar/4.jpg" alt=""> 
+                                                    <span class="list-author-widget-link"><?php the_author_posts_link(); ?></span>
+                                                    <img src="<?php  echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""> 
                                                 </div>
                                                 <div class="box-widget-content">
                                                     <div class="list-author-widget-text">
                                                         <div class="list-author-widget-contacts">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
+                                                            <p><?php the_author_meta('description'); ?></p>
                                                         </div>
                                                         <div class="list-widget-social">
                                                             <ul>

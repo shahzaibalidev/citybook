@@ -2,7 +2,7 @@ jQuery(function($) {
 
   var file_frame;
 
-  $(document).on('click', '#gallery-metabox a.gallery-add', function(e) {
+  $(document).on('click', '#fslider-metabox a.fslider-add', function(e) {
 
     e.preventDefault();
 
@@ -17,14 +17,14 @@ jQuery(function($) {
     });
 
     file_frame.on('select', function() {
-      var listIndex = $('#gallery-metabox-list li').index($('#gallery-metabox-list li:last')),
+      var listIndex = $('#fslider-metabox-list li').index($('#fslider-metabox-list li:last')),
           selection = file_frame.state().get('selection');
 
       selection.map(function(attachment, i) {
         attachment = attachment.toJSON(),
         index      = listIndex + (i + 1);
 
-        $('#gallery-metabox-list').append('<li><input type="hidden" name="vdw_gallery_id[' + index + ']" value="' + attachment.id + '"><img class="image-preview" src="' + attachment.sizes.thumbnail.url + '"><a class="change-image button button-small" href="#" data-uploader-title="Change image" data-uploader-button-text="Change image">Change image</a><br><small><a class="remove-image" href="#">Remove image</a></small></li>');
+        $('#fslider-metabox-list').append('<li><input type="hidden" name="fslider_id[' + index + ']" value="' + attachment.id + '"><img class="image-preview" src="' + attachment.sizes.thumbnail.url + '"><a class="change-image button button-small" href="#" data-uploader-title="Change image" data-uploader-button-text="Change image">Change image</a><br><small><a class="remove-image" href="#">Remove image</a></small></li>');
       });
     });
 
@@ -34,7 +34,7 @@ jQuery(function($) {
 
   });
 
-  $(document).on('click', '#gallery-metabox a.change-image', function(e) {
+  $(document).on('click', '#fslider-metabox a.change-image', function(e) {
 
     e.preventDefault();
 
@@ -62,13 +62,13 @@ jQuery(function($) {
   });
 
   function resetIndex() {
-    $('#gallery-metabox-list li').each(function(i) {
-      $(this).find('input:hidden').attr('name', 'vdw_gallery_id[' + i + ']');
+    $('#fslider-metabox-list li').each(function(i) {
+      $(this).find('input:hidden').attr('name', 'fslider_id[' + i + ']');
     });
   }
 
   function makeSortable() {
-    $('#gallery-metabox-list').sortable({
+    $('#fslider-metabox-list').sortable({
       opacity: 0.6,
       stop: function() {
         resetIndex();
@@ -76,7 +76,7 @@ jQuery(function($) {
     });
   }
 
-  $(document).on('click', '#gallery-metabox a.remove-image', function(e) {
+  $(document).on('click', '#fslider-metabox a.remove-image', function(e) {
     e.preventDefault();
 
     $(this).parents('li').animate({ opacity: 0 }, 200, function() {

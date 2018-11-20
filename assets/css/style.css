@@ -764,7 +764,7 @@ section.color-bg .header-sec-link a:hover {
 	background:#fff;
 }
 section.hero-section {
-	padding:150px 0 200px;
+	padding:100px 0 150px;
 }
 section.hero-section.no-dadding {
 	padding:0;
@@ -1226,15 +1226,15 @@ section.gray-section .section-separator {
 }
 .box-cat-container {
 	display:inline-table;
-	margin-top:10px;
+	margin-top: 38px;
 }
 .box-cat {
 	display:inline-block;
-	padding:20px 0;
+	padding:10px 0px;
 	border-radius:6px;
 	color:#fff;
 	margin:0 10px;
-	min-width:120px;
+	min-width:100px;
 	box-shadow: 0px 0px 0px 5px rgba(255,255,255,0.2);
 }
 .box-cat:hover{
@@ -5586,6 +5586,45 @@ footer.main-footer.fixed-footer {
 .jr-insta-thumb li a:hover {
 	opacity:0.6;
 }
+/*------ author block------------------------------------------------*/
+.post-author-block .author-img {
+	position: absolute;
+}
+.post-author-block .author-content {
+	padding-left: 100px;
+}
+.post-author-block img {
+width: 80px;
+height: 80px; }
+.author-content h5 {
+line-height: 2;
+text-align: left;
+font-size: 16px; }
+.post-author a {
+font-weight: 600;
+color: #666; }
+.author-social {
+margin-top: 20px;
+padding-top: 20px; }
+.author-social ul {
+	text-align: left;
+list-style: none; }
+.author-social li {
+display: inline-block;
+margin-right: 8px;
+text-align: center; }
+.author-social li a {
+width: 36px;
+height: 36px;
+display: block;
+line-height: 36px;
+border-radius: 4px;
+color: #fff; }
+.author-social li a:hover {
+background: #2C3B5A; }
+.author-social {
+border-top: 1px solid #eee; }
+.author-social a,nav li a.act-link:before{background:#4db7fe}
 /*------ to-top------------------------------------------------*/
 .to-top {
 	position:fixed;

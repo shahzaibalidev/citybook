@@ -1,5 +1,6 @@
 <?php
-require 'includes/gallery-metabox/gallery.php';
+require 'includes/fslider-metabox/fslider.php';
+require 'includes/functions/shortcodes.php';
 
 function citybook_style(){
 
@@ -59,7 +60,6 @@ function setPostViews($postID) {
     }
 }
 /* Post Views Number END */
-
 
 
 
