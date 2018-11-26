@@ -67,7 +67,8 @@ add_action('wp_ajax_citybooklogin', 'citybook_login_func');
 
 function citybook_login_func (){
 
-  echo '123';
+  echo $_POST['email'];
+  echo $_POST['password'];
   die();
 }
 ?>

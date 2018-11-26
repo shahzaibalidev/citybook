@@ -753,7 +753,7 @@ jQuery(document).ready(function(){
         e.preventDefault();
         var url = jQuery(this).attr('action');
         var data = new FormData(this);
-        
+
         $.ajax({
             url: url,      
             type: 'post',                   
