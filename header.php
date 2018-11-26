@@ -40,7 +40,26 @@
                     </div>
                     <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
                     <a href="dashboard-add-listing.html" class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
+                    <?php 
+                    if(!is_user_logged_in()){ ?>
                     <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
+                <?php }else{ 
+                    $inuser = get_current_user_id();
+                    ?>
+                    <div class="header-user-menu">
+                        <div class="header-user-name">
+                            <span><img src="<?php echo get_avatar_url($inuser); ?>" alt=""></span>
+                            Hello , <?php $dnuser = get_userdata($inuser); echo $dnuser->user_login; ?>
+                        </div>
+                        <ul>
+                            <li><a href="dashboard-myprofile.html"> Edit profile</a></li>
+                            <li><a href="dashboard-add-listing.html"> Add Listing</a></li>
+                            <li><a href="dashboard-bookings.html">  Bookings  </a></li>
+                            <li><a href="dashboard-review.html"> Reviews </a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </div>
+                <?php } ?>
                     <!-- nav-button-wrap--> 
                     <div class="nav-button-wrap color-bg">
                         <div class="nav-button">
