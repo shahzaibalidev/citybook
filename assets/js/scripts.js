@@ -751,11 +751,11 @@ $(function () {
 jQuery(document).ready(function(){
     jQuery('.login-form').on('submit', function(e){
         e.preventDefault();
-        var ajaxUrl = jQuery(this).attr('action');
+        var url = jQuery(this).attr('action');
         var data = new FormData(this);
-        // Send Ajax
+        
         $.ajax({
-            url: ajaxUrl,      
+            url: url,      
             type: 'post',                   
             data: data,
             processData: false,
