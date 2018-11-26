@@ -11,8 +11,8 @@
             <div class="container">
                 <div class="section-title center-align">
                     <div class="breadcrumbs fl-wrap"><a href="#">Home</a><a href="#">Listing</a><span>User profile</span></div>
-                    <h2><span>User : Alisa Noory</span></h2>
-                    <div class="user-profile-avatar"><img src="images/avatar/4.jpg" alt=""></div>
+                    <h2><span>User : <?php the_author_meta( 'display_name' ); ?></span></h2>
+                    <div class="user-profile-avatar"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""></div>
                     <div class="user-profile-rating clearfix">
                         <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
                             <span>(37 reviews)</span>
@@ -32,14 +32,13 @@
                     <div class="col-md-8">
                         <div class="list-single-main-item fl-wrap">
                             <div class="list-single-main-item-title fl-wrap">
-                                <h3>About <span> Alisa Noory</span></h3>
+                                <h3>About <span> <?php the_author_meta( 'display_name' ); ?></span></h3>
                             </div>
-                            <p>Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus. Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum elementum, est elit finibus tellus, ut tristique elit risus at metus.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</p>
+                            <p><?php the_author_meta('description'); ?></p>
                             <a href="#" class="btn transparent-btn float-btn">Visit Website <i class="fa fa-angle-right"></i></a>
                         </div>
                         <div class="listsearch-header fl-wrap">
-                            <h3>Alisa's Listings</h3>
+                            <h3><?php the_author_meta( 'display_name' ); ?>'s Listings</h3>
                             <div class="listing-view-layout">
                                 <ul>
                                     <li><a class="grid active" href="#"><i class="fa fa-th-large"></i></a></li>

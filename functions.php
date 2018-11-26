@@ -61,6 +61,13 @@ function setPostViews($postID) {
 }
 /* Post Views Number END */
 
+// Ajax Login Submission
+add_action('wp_ajax_nopriv_citybooklogin', 'citybook_login_func');
+add_action('wp_ajax_citybooklogin', 'citybook_login_func');
 
+function citybook_login_func (){
 
+  echo '123';
+  die();
+}
 ?>

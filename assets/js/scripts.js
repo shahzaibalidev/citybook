@@ -747,3 +747,24 @@ $(function () {
     initCitybook();
     initparallax();
 });
+
+jQuery(document).ready(function(){
+    jQuery('.login-form').on('submit', function(e){
+        e.preventDefault();
+        var ajaxUrl = jQuery(this).attr('action');
+        var data = new FormData(this);
+        // Send Ajax
+        $.ajax({
+            url: ajaxUrl,      
+            type: 'post',                   
+            data: data,
+            processData: false,
+            contentType: false,       
+            success : function( response ) {
+                alert(response);
+            }
+        });
+
+        
+    });
+});

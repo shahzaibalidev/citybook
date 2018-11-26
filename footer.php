@@ -126,11 +126,12 @@
                             <div class="tab">
                                 <div id="tab-1" class="tab-content">
                                     <div class="custom-form">
-                                        <form method="post"  name="registerform">
+                                        <form method="post" class="login-form" action="<?php echo admin_url( 'admin-ajax.php' ); ?>"  name="registerform">
                                             <label>Username or Email Address * </label>
                                             <input name="email" type="text"   onClick="this.select()" value=""> 
                                             <label >Password * </label>
                                             <input name="password" type="password"   onClick="this.select()" value="" > 
+                                            <input type="hidden" name="action" value="citybooklogin" >
                                             <button type="submit"  class="log-submit-btn"><span>Log In</span></button> 
                                             <div class="clearfix"></div>
                                             <div class="filter-tags">
