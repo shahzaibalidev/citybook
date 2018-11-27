@@ -167,6 +167,7 @@
                 </div>
             </div>
             <!--register form end -->
+            <!-- RESETPASSWORD -->
             <div class="main-register-wrap modalreset">
                 <div class="main-overlay"></div>
                 <div class="main-register-holder">
@@ -188,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            <!-- end reset password modal -->
+            <!-- /RESETPASSWORD -->
             <a class="to-top"><i class="fa fa-angle-up"></i></a>
         </div>
         <!-- Main end -->
