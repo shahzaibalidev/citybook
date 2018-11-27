@@ -761,7 +761,8 @@ jQuery(document).ready(function(){
             processData: false,
             contentType: false,       
             success : function( response ) {
-                alert(response);
+                /*alert(response);*/
+                location.reload();
             }
         });
 

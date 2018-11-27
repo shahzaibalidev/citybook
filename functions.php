@@ -67,8 +67,21 @@ add_action('wp_ajax_citybooklogin', 'citybook_login_func');
 
 function citybook_login_func (){
 
-  echo $_POST['email'];
-  echo $_POST['password'];
+  $username = $_POST['email'];
+  $password = $_POST['password'];
+
+  $creds = array(
+        'user_login'    => ''.$username.'',
+        'user_password' => ''.$password.'',
+        'remember'      => false
+    );
+ 
+    $user = wp_signon( $creds, false );
+ 
+    if ( is_wp_error( $user ) ) {
+        /*echo $user->get_error_message();*/
+    }
+
   die();
 }
 ?>

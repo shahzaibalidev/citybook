@@ -52,11 +52,14 @@
                             Hello , <?php $dnuser = get_userdata($inuser); echo $dnuser->user_login; ?>
                         </div>
                         <ul>
-                            <li><a href="dashboard-myprofile.html"> Edit profile</a></li>
+                            <li><a href="<?php echo site_url(); ?>/dashboard"> Dasboard</a></li>
                             <li><a href="dashboard-add-listing.html"> Add Listing</a></li>
                             <li><a href="dashboard-bookings.html">  Bookings  </a></li>
                             <li><a href="dashboard-review.html"> Reviews </a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a href="<?php 
+                            $protocol = $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+                            $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                            echo wp_logout_url( $url ); ?>">Log Out</a></li>
                         </ul>
                     </div>
                 <?php } ?>
