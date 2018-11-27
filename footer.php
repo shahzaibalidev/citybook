@@ -110,7 +110,7 @@
                 <div class="main-overlay"></div>
                 <div class="main-register-holder">
                     <div class="main-register fl-wrap">
-                        <div class="close-reg"><i class="fa fa-times"></i></div>
+                        <div class="close-reg closereg"><i class="fa fa-times"></i></div>
                         <h3>Sign In <span>City<strong>Book</strong></span></h3>
                         <div class="soc-log fl-wrap">
                             <p>For faster login or register use your social account.</p>
@@ -140,7 +140,7 @@
                                             </div>
                                         </form>
                                         <div class="lost_password">
-                                            <a href="#">Lost Your Password?</a>
+                                            <a href="#" class="modalreset-open">Lost Your Password?</a>
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +167,28 @@
                 </div>
             </div>
             <!--register form end -->
+            <div class="main-register-wrap modalreset">
+                <div class="main-overlay"></div>
+                <div class="main-register-holder">
+                    <div class="main-register fl-wrap">
+                        <div class="close-reg closereset"><i class="fa fa-times"></i></div>
+                        <h3>Sign In <span>City<strong>Book</strong></span></h3>
+                        
+                        <div class="resetform">
+                            <div class="custom-form">
+                                <form method="post" class="login-form" action="<?php echo admin_url( 'admin-ajax.php' ); ?>"  name="resetform">
+                                    <label>Email Address</label>
+                                    <input name="email" type="text"   onClick="this.select()" value=""> 
+                                    <input type="hidden" name="action" value="citybooklogin" >
+                                    <button type="submit"  class="log-submit-btn"><span>Reset Password</span></button> 
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end reset password modal -->
             <a class="to-top"><i class="fa fa-angle-up"></i></a>
         </div>
         <!-- Main end -->

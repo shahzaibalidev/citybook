@@ -1448,6 +1448,11 @@ section.gray-section .section-separator {
 #tab-1 {
 	display: block;
 }
+.resetform {
+	width: 100%;
+    padding: 0 30px;
+    
+}
 /*------ listing------------------------------------------------*/
 .card-listing .geodir-category-listing {
 	overflow:hidden;

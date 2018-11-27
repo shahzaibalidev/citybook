@@ -475,8 +475,25 @@ function initCitybook() {
         $('.modal').fadeIn();
         $("html, body").addClass("hid-body");
     });
-    $('.close-reg').on("click", function () {
+    $('.closereg').on("click", function () {
         modal.hide();
+    });
+    // modalreset ------------------
+    var modalreset = {};
+    modalreset.hide = function () {
+        $('.modalreset').fadeOut();
+        $("html, body").removeClass("hid-body");
+    };
+    $('.modalreset-open').on("click", function (e) {
+        e.preventDefault();
+        modal.hide();
+        $('.modalreset').fadeIn();
+        $("html, body").addClass("hid-body");
+    });
+    $('.closereset').on("click", function () {
+        modalreset.hide();
+        $('.modal').fadeIn();
+        $("html, body").addClass("hid-body");
     });
 	// click ------------------
     $(".more-filter-option").on("click", function () {
