@@ -69,7 +69,7 @@ get_header();
                                         <h3>Main</h3>
                                         <ul>
                                         	<li><a href="<?php echo site_url(); ?>/dashboard"><i class="fa fa-gears"></i>Dashboard</a></li>													
-                                            <li><a href="dashboard-myprofile.html"><i class="fa fa-user-o"></i> Edit profile</a></li>
+                                            <li><a href="<?php echo site_url(); ?>/dashboard/edit-profile/"><i class="fa fa-user-o"></i> Edit profile</a></li>
                                             <li><a href="dashboard-messages.html"><i class="fa fa-envelope-o"></i> Messages <span>3</span></a></li>
                                             <li><a href="<?php echo site_url(); ?>/dashboard/change-password/" class="user-profile-act"><i class="fa fa-unlock-alt"></i>Change Password</a></li>
                                         </ul>

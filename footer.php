@@ -111,7 +111,7 @@
                 <div class="main-register-holder">
                     <div class="main-register fl-wrap">
                         <div class="close-reg closereg"><i class="fa fa-times"></i></div>
-                        <h3>Sign In <span>City<strong>Book</strong></span></h3>
+                        <h3>Sign In <span><strong><?php bloginfo(); ?></strong></span></h3>
                         <div class="soc-log fl-wrap">
                             <p>For faster login or register use your social account.</p>
                             <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
@@ -168,27 +168,26 @@
             </div>
             <!--register form end -->
             <!-- RESETPASSWORD -->
-            <div class="main-register-wrap modalreset">
-                <div class="main-overlay"></div>
-                <div class="main-register-holder">
-                    <div class="main-register fl-wrap">
-                        <div class="close-reg closereset"><i class="fa fa-times"></i></div>
-                        <h3>Sign In <span>City<strong>Book</strong></span></h3>
-                        
-                        <div class="resetform">
+                <div class="main-register-wrap modalreset">
+                    <div class="main-overlay"></div>
+                    <div class="main-register-holder">
+                        <div class="main-register fl-wrap">
+                            <div class="close-reg closereset"><i class="fa fa-times"></i></div>
+                            <h3>Reset <span>Your Password<strong></strong></span></h3>
+                            <div class="resetform">
                             <div class="custom-form">
-                                <form method="post" class="login-form" action="<?php echo admin_url( 'admin-ajax.php' ); ?>"  name="resetform">
+                                <form method="post" class="reset-form" action="<?php echo admin_url( 'admin-ajax.php' ); ?>"  name="resetform">
                                     <label>Email Address</label>
                                     <input name="email" type="text"   onClick="this.select()" value=""> 
-                                    <input type="hidden" name="action" value="citybooklogin" >
+                                    <input type="hidden" name="action" value="citybookreset" >
                                     <button type="submit"  class="log-submit-btn"><span>Reset Password</span></button> 
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- /RESETPASSWORD -->
             <a class="to-top"><i class="fa fa-angle-up"></i></a>
         </div>

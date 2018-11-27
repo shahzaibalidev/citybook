@@ -766,6 +766,7 @@ $(function () {
 });
 
 jQuery(document).ready(function(){
+
     jQuery('.login-form').on('submit', function(e){
         e.preventDefault();
         var url = jQuery(this).attr('action');
@@ -783,6 +784,24 @@ jQuery(document).ready(function(){
             }
         });
 
-        
+    });
+
+    jQuery('.reset-form').on('submit', function(e){
+        e.preventDefault();
+        var url = jQuery(this).attr('action');
+        var data = new FormData(this);
+
+        $.ajax({
+            url: url,      
+            type: 'post',                   
+            data: data,
+            processData: false,
+            contentType: false,       
+            success : function( response ) {
+                alert(response);
+                /*location.reload();*/
+            }
+        });
+
     });
 });

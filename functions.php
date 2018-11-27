@@ -21,6 +21,29 @@ function citybook_style(){
 
 add_action('wp_enqueue_scripts','citybook_style');
 
+
+add_action('init', 'redirect_wplogin');
+
+function redirect_wplogin(){
+  global $pagenow;
+  if($pagenow == 'wp-login.php' && $_GET['action'] != "logout"){
+    wp_redirect(home_url());
+    exit();
+  }
+}
+
+add_action('init', 'redirect_wpadmin');
+function redirect_wpadmin(){
+  $GLOBALS['userisadmin'] = false;
+  $user = wp_get_current_user();
+  $allowed_roles = array('editor', 'administrator');
+  if( array_intersect($allowed_roles, $user->roles ) ) {
+    $GLOBALS['userisadmin'] = true;
+  }else{
+    wp_redirect(home_url()."/dashboard");
+  }
+}
+
 add_theme_support('post-thumbnails');
 
 include_once get_template_directory(). '/includes/framework/options-init.php';
@@ -85,4 +108,20 @@ function citybook_login_func (){
 
   die();
 }
+
+// Ajax Reset Submission
+add_action('wp_ajax_nopriv_citybookreset', 'citybook_reset_func');
+add_action('wp_ajax_citybookreset', 'citybook_reset_func');
+
+function citybook_reset_func (){
+
+  $resetemail = $_POST['email'];
+
+  echo $resetemail;
+
+  die();
+}
+
+
+
 ?>
