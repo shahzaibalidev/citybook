@@ -69,11 +69,12 @@ function citybook_login_func (){
 
   $username = $_POST['email'];
   $password = $_POST['password'];
+  $remember = $_POST['check'];
 
   $creds = array(
-        'user_login'    => ''.$username.'',
-        'user_password' => ''.$password.'',
-        'remember'      => false
+        'user_login'    => $username,
+        'user_password' => $password,
+        'remember'      => $remember
     );
  
     $user = wp_signon( $creds, false );
