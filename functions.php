@@ -21,7 +21,7 @@ function citybook_style(){
 
 add_action('wp_enqueue_scripts','citybook_style');
 
-
+/*==========================================================================================*/
 add_action('init', 'redirect_wplogin');
 
 function redirect_wplogin(){
@@ -43,6 +43,21 @@ function redirect_wpadmin(){
     wp_redirect(home_url()."/dashboard");
   }
 }
+/*==========================================================================================*/
+// add a link to the WP Toolbar
+function custom_toolbar_link($wp_admin_bar) {
+    $args = array(
+        'id' => 'fedashlink',
+        'title' => 'Dashboard', 
+        'href' => ''.site_url().'/dashboard', 
+        'meta' => array(
+            'class' => 'fedashlink', 
+            'title' => 'Dashboard'
+            )
+    );
+    $wp_admin_bar->add_node($args);
+}
+add_action('admin_bar_menu', 'custom_toolbar_link', 31);
 
 add_theme_support('post-thumbnails');
 
@@ -122,6 +137,78 @@ function citybook_reset_func (){
   die();
 }
 
+add_action('wp_ajax_nopriv_citybook-editprofile', 'citybook_editpro_func');
+add_action('wp_ajax_citybook-editprofile', 'citybook_editpro_func');
+
+function citybook_editpro_func (){
+
+  // $file = $_FILES['profile-pic']['tmp_name'];
+
+  // // if(upload_user_file($_FILES['profile-pic'])){
+  // //   echo 'done';
+  // // }else{
+  // //   echo 'not done';
+  // // }
+  // echo $file;
+
+  die();
+}
+
+add_action('wp_ajax_nopriv_profile-pic-upload', 'citybook_profile_pic_func');
+add_action('wp_ajax_profile-pic-upload', 'citybook_profile_pic_func');
+
+function citybook_profile_pic_func (){
+
+  $file_tmp = $_FILES['profile-pic']['tmp_name'];
+  $file_name = $_FILES['profile-pic']['name'];
+  $path = ABSPATH . 'wp-content/themes/citybook/assets/images';
+  $uploaded_loc = $path . '/' . $file_name;
+  move_uploaded_file($file_tmp, $uploaded_loc);
+  
+  $file_path = get_template_directory_uri() . '/assets/images/' . $file_name;
+  echo $file_path;
+
+  die();
+}
+
+/*==========================================================================================*/
+
+function upload_user_file( $file = array() ) {
+ 
+      require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+ 
+      $file_return = wp_handle_upload( $file, array('test_form' => false ) );
+ 
+      if( isset( $file_return['error'] ) || isset( $file_return['upload_error_handler'] ) ) {
+          return false;
+      } else {
+ 
+          $filename = $file_return['file'];
+ 
+          $attachment = array(
+              'post_mime_type' => $file_return['type'],
+              'post_title' => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
+              'post_content' => '',
+              'post_status' => 'inherit',
+              'guid' => $file_return['url']
+          );
+ 
+          $attachment_id = wp_insert_attachment( $attachment, $file_return['url'] );
+ 
+          require_once(ABSPATH . 'wp-admin/includes/image.php');
+          $attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
+          wp_update_attachment_metadata( $attachment_id, $attachment_data );
+ 
+          if( 0 < intval( $attachment_id ) ) {
+              return $attachment_id;
+          }
+      }
+ 
+      return false;
+}
+
+
+/*==========================================================================================*/
 
 
 ?>

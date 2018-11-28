@@ -804,4 +804,51 @@ jQuery(document).ready(function(){
         });
 
     });
+
+    jQuery('.edit-profile-form').on('submit', function(e){
+        e.preventDefault();
+        var url = jQuery(this).attr('action');
+        var data = new FormData(this);
+
+        $.ajax({
+            url: url,      
+            type: 'post',                   
+            data: data,
+            processData: false,
+            contentType: false,       
+            success : function( response ) {
+                alert(response);
+                
+            }
+        });
+
+    });
+
+    jQuery('input[name="profile-pic"]').on('change', function(){
+        
+        jQuery(this).parents('form').submit();
+
+    });
+
+    jQuery('.profile-pic-form').on('submit', function(e){
+        e.preventDefault();
+        var url = jQuery(this).attr('action');
+        var data = new FormData(this);
+        var _this = jQuery(this);
+
+        $.ajax({
+            url: url,      
+            type: 'post',                   
+            data: data,
+            processData: false,
+            contentType: false,       
+            success : function( response ) {
+                _this.find('.respimg').attr('src', response);   
+            }
+        });
+
+    });
 });
+
+
+
