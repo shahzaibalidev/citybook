@@ -4333,6 +4333,9 @@ article .list-single-main-item {
 .btn.big-btn {
 	padding:15px 40px;
 }
+.btn.small-btn {
+	padding:15px 35px;
+}
 .btn.circle-btn {
 	border-radius:30px;
 }

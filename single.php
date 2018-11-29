@@ -377,7 +377,7 @@ setPostViews(get_the_ID());
                     <!--section -->
                     <section class="gradient-bg">
                         <div class="cirle-bg">
-                            <div class="bg" data-bg="images/bg/circle.png"></div>
+                            <div class="bg" data-bg="<?php echo get_template_directory_uri(); ?>/assets/images/bg/circle.png"></div>
                         </div>
                         <div class="container">
                             <div class="join-wrap fl-wrap">

@@ -59,16 +59,20 @@ get_header();
                                             <h4>My Account</h4>
                                         </div>
                                         <div class="custom-form">
-                                            <label>Your Name <i class="fa fa-user-o"></i></label>
-                                            <input type="text" placeholder="AlisaNoory" value=""/>
+                                            <label>First Name <i class="fa fa-user-o"></i></label>
+                                            <input type="text" placeholder="First Name" value=""/>
+                                            <label>Last Name <i class="fa fa-user-o"></i></label>
+                                            <input type="text" placeholder="Last Name" value=""/>
+                                            <label>Nickname <i class="fa fa-user-o"></i></label>
+                                            <input type="text" placeholder="Nickname" value=""/>
                                             <label>Email Address<i class="fa fa-envelope-o"></i>  </label>
-                                            <input type="text" placeholder="AlisaNoory@domain.com" value=""/>
+                                            <input type="text" placeholder="email@domain.com" value=""/>
                                             <label>Phone<i class="fa fa-phone"></i>  </label>
                                             <input type="text" placeholder="+7(123)987654" value=""/>
                                             <label> Adress <i class="fa fa-map-marker"></i>  </label>
                                             <input type="text" placeholder="USA 27TH Brooklyn NY" value=""/>
                                             <label> Website <i class="fa fa-globe"></i>  </label>
-                                            <input type="text" placeholder="themeforest.net" value=""/>  
+                                            <input type="text" placeholder="www.domain.com" value=""/>  
                                             <label> Notes</label>                                              
                                             <textarea cols="40" rows="3" placeholder="About Me"></textarea>
                                         </div>
@@ -136,20 +140,33 @@ get_header();
                                     <!-- profile-edit-container end-->                                        
                                 </div>
                             </form>
+                            <!-- profile-pic-container-->
+                            <?php
+                                $picurl = get_template_directory_uri().'/assets/images/avatar/avatar-bg.png';
+                                $picid = get_user_meta( get_current_user_id(), 'profile_pic', true );
+                                $picurl2 = wp_get_attachment_url( $picid );
+                                if(!empty($picurl2)){
+                                    $picurl = $picurl2;
+                                }
+                            ?>
                             <form action="<?php echo admin_url('admin-ajax.php'); ?>" class="profile-pic-form" method="post">
                                 <div class="col-md-2">
                                     <div class="edit-profile-photo fl-wrap">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar/avatar-bg.png" class="respimg" alt="">
+                                        <img src="<?php echo $picurl; ?>" class="respimg" alt="">
                                         <div class="change-photo-btn">
                                             <div class="photoUpload">
-                                                <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                <span><i class="fa fa-upload"></i> Upload Picture</span>
                                                 <input type="file" name="profile-pic" class="upload" accept="image/*">
                                                 <input type="hidden" name="action" value="profile-pic-upload">
                                             </div>
+                                            <div class="custom-form">
+                                                <button type="submit" class="btn small-btn color-bg flat-btn">Save Picture<i class="fa fa-angle-right"></i></button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            <!-- profile-pic-container end-->
                         </div>
                     </div>
                     <!--profile-edit-wrap end -->
@@ -161,7 +178,7 @@ get_header();
             <!--section -->
             <section class="gradient-bg">
                 <div class="cirle-bg">
-                    <div class="bg" data-bg="images/bg/circle.png"></div>
+                    <div class="bg" data-bg="<?php echo get_template_directory_uri(); ?>/assets/images/bg/circle.png"></div>
                 </div>
                 <div class="container">
                     <div class="join-wrap fl-wrap">

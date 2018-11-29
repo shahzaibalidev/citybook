@@ -142,31 +142,65 @@ add_action('wp_ajax_citybook-editprofile', 'citybook_editpro_func');
 
 function citybook_editpro_func (){
 
-  // $file = $_FILES['profile-pic']['tmp_name'];
+  $file = $_FILES['profile-pic']['tmp_name'];
 
-  // // if(upload_user_file($_FILES['profile-pic'])){
-  // //   echo 'done';
-  // // }else{
-  // //   echo 'not done';
-  // // }
-  // echo $file;
+  if(upload_user_file($_FILES['profile-pic'])){
+    echo 'done';
+  }else{
+    echo 'not done';
+  }
+  echo $file;
 
   die();
 }
 
 add_action('wp_ajax_nopriv_profile-pic-upload', 'citybook_profile_pic_func');
 add_action('wp_ajax_profile-pic-upload', 'citybook_profile_pic_func');
-
+$GLOBALS['x'] = false;
 function citybook_profile_pic_func (){
 
-  $file_tmp = $_FILES['profile-pic']['tmp_name'];
-  $file_name = $_FILES['profile-pic']['name'];
-  $path = ABSPATH . 'wp-content/themes/citybook/assets/images';
-  $uploaded_loc = $path . '/' . $file_name;
-  move_uploaded_file($file_tmp, $uploaded_loc);
+  $save = $_POST['save-profile'];
+
+  if($save == 'yes'){
+    // From Save Button
+    
+    do {
+      $picid = upload_user_file($_FILES['profile-pic']);
+    } while ($GLOBALS['x'] = true);
+    
+    $userid = get_current_user_id();
+    $metakey = 'profile_pic';
+
+    if ( metadata_exists( 'user', $userid, $metakey ) ) {
+      update_user_meta( $userid, $metakey, $picid);
+    }else{
+      add_user_meta( $userid, $metakey, $picid);
+    }
+
+    $picurl = get_template_directory_uri().'/assets/images/avatar/avatar-bg.png';
+    $picid = get_user_meta( get_current_user_id(), 'profile_pic', true );
+    $picurl2 = wp_get_attachment_url( $picid );
+    if(!empty($picurl2)){
+        $picurl = $picurl2;
+    }
+    
+    echo $picurl;
   
-  $file_path = get_template_directory_uri() . '/assets/images/' . $file_name;
-  echo $file_path;
+
+  }else{
+    // From Upload Button
+    
+    $file_tmp = $_FILES['profile-pic']['tmp_name'];
+    $file_name = $_FILES['profile-pic']['name'];
+    $path = ABSPATH . 'wp-content/themes/citybook/assets/images/temp';
+    $uploaded_loc = $path . '/' . $file_name;
+    move_uploaded_file($file_tmp, $uploaded_loc);
+
+    $file_path = get_template_directory_uri() . '/assets/images/temp/' . $file_name;
+    
+    echo $file_path;
+  }
+
 
   die();
 }

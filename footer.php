@@ -21,21 +21,21 @@
                                 <div class="widget-posts fl-wrap">
                                     <ul>
                                         <li class="clearfix">
-                                            <a href="#"  class="widget-posts-img"><img src="images/all/1.jpg" class="respimg" alt=""></a>
+                                            <a href="#"  class="widget-posts-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/all/1.jpg" class="respimg" alt=""></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Vivamus dapibus rutrum</a>
                                                 <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 21 Mar 09.05 </span> 
                                             </div>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="#"  class="widget-posts-img"><img src="images/all/2.jpg" class="respimg" alt=""></a>
+                                            <a href="#"  class="widget-posts-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/all/2.jpg" class="respimg" alt=""></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title=""> In hac habitasse platea</a>
                                                 <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 18.21 </span> 
                                             </div>
                                         </li>
                                         <li class="clearfix">
-                                            <a href="#"  class="widget-posts-img"><img src="images/all/3.jpg" class="respimg" alt=""></a>
+                                            <a href="#"  class="widget-posts-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/all/3.jpg" class="respimg" alt=""></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Tortor tempor in porta</a>
                                                 <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 16.42 </span>
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="about-widget">
-                                    <img src="images/logo.png" alt="">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
                                 </div>
                             </div>
                             <div class="col-md-4">

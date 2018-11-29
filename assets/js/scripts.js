@@ -832,9 +832,14 @@ jQuery(document).ready(function(){
 
     jQuery('.profile-pic-form').on('submit', function(e){
         e.preventDefault();
+
         var url = jQuery(this).attr('action');
         var data = new FormData(this);
         var _this = jQuery(this);
+
+        if(!e.isTrigger){
+            data.append('save-profile', 'yes');
+        }
 
         $.ajax({
             url: url,      
@@ -844,8 +849,10 @@ jQuery(document).ready(function(){
             contentType: false,       
             success : function( response ) {
                 _this.find('.respimg').attr('src', response);   
+                //alert(response);
             }
         });
+
 
     });
 });
