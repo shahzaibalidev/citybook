@@ -66,7 +66,7 @@
                                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                     </div>
                                     <p><?php echo wp_html_excerpt(get_the_excerpt(), 350, '...'); ?></p>
-                                    <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
+                                    <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php //echo get_avatar_url(get_the_author_meta('ID')); ?><?php echo getuserpic(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
                                     <div class="post-opt">
                                         <ul>
                                             <li><i class="fa fa-calendar-check-o"></i> <span><?php echo get_the_date('d F Y'); ?></span></li>

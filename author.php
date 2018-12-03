@@ -12,7 +12,7 @@
                 <div class="section-title center-align">
                     <div class="breadcrumbs fl-wrap"><a href="#">Home</a><a href="#">Listing</a><span>User profile</span></div>
                     <h2><span>User : <?php the_author_meta( 'display_name' ); ?></span></h2>
-                    <div class="user-profile-avatar"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""></div>
+                    <div class="user-profile-avatar"><img src="<?php echo getuserpic(get_the_author_meta('ID')); ?>" alt=""></div>
                     <div class="user-profile-rating clearfix">
                         <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
                             <span>(37 reviews)</span>

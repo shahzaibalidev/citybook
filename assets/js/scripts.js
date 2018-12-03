@@ -824,7 +824,7 @@ jQuery(document).ready(function(){
 
     });
 
-    jQuery('input[name="profile-pic"]').on('change', function(){
+    /*jQuery('input[name="profile-pic"]').on('change', function(){
         
         jQuery(this).parents('form').submit();
 
@@ -852,9 +852,69 @@ jQuery(document).ready(function(){
                 //alert(response);
             }
         });
+    });*/
 
+    jQuery('.notification').hide();
 
+    jQuery('.profile-pic-form').on('submit', function(e){
+        e.preventDefault();
+        $('#notiftext').text('');
+        if( document.getElementById("userprofile_img").files.length == 0 ){
+            $('.notification').toggleClass("reject");
+            $('#notiftext').text('Select a valid Image');
+            $('.notification').show();
+        }else{
+            var url = jQuery(this).attr('action');
+            $.ajax({
+                url: url,      
+                type: 'post',                   
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success : function( response ) {
+                    location.reload();
+                    //_this.find('.respimg').attr('src', response);
+                    /*var check = response;
+                    if (check == "success") {
+                        $('.notification').toggleClass("success");
+                        $('#notiftext').text('Saved!');
+                        $('.notification').show();
+                    }else{
+                        $('.notification').toggleClass("reject");
+                        $('#notiftext').text('Select a valid Image');
+                        $('.notification').show();
+                    }*/
+
+                }
+            });
+        }
     });
+
+    // Function to preview image after validation
+    jQuery(function() {
+        jQuery("#userprofile_img").change(function() {
+            $('#notiftext').text('');
+            var file = this.files[0];
+            var imagefile = file.type;
+            var match= ["image/jpeg","image/png","image/jpg"];
+            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+                jQuery('#previewing').attr('src','/wp-content/themes/citybook/assets/images/avatar/avatar-bg.png');
+                $('.notification').addClass("reject");
+                $('#notiftext').text('Please Select A valid Image!');
+                $('.notification').show();
+                return false;
+            }else{
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+    function imageIsLoaded(e) {
+        jQuery('#previewing').attr('src', e.target.result);
+    };
+
+    
 });
 
 

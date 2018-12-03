@@ -75,7 +75,7 @@ setPostViews(get_the_ID());
                                                     <h3><?php the_title(); ?></h3>
                                                 </div>
                                                 <p><?php the_content(); ?></p>
-                                                <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
+                                                <div class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><img src="<?php echo getuserpic(get_the_author_meta('ID')); ?>" alt=""><span>By , <?php the_author_meta( 'display_name' ); ?></span></a></div>
                                                 <div class="post-opt">
                                                     <ul>
 			                                            <li><i class="fa fa-calendar-check-o"></i> <span><?php echo get_the_date('d F Y'); ?></span></li>
@@ -116,7 +116,7 @@ setPostViews(get_the_ID());
                                         </div>
                                         <div class="post-author post-author-block clearfix">
                                             <div class="author-img">
-                                                <img  src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>"  alt=""/> 
+                                                <img  src="<?php echo getuserpic(get_the_author_meta('ID')); ?>"  alt=""/> 
                                             </div>
                                             <div class="author-content">
                                                 <h5><a href="<?php echo get_author_posts_url( get_the_author_meta('ID')); ?>"><?php the_author_meta( 'display_name' ); ?></a></h5>
@@ -239,7 +239,7 @@ setPostViews(get_the_ID());
                                             <div class="box-widget list-author-widget">
                                                 <div class="list-author-widget-header shapes-bg-small  color-bg fl-wrap">
                                                     <span class="list-author-widget-link"><?php the_author_posts_link(); ?></span>
-                                                    <img src="<?php  echo get_avatar_url(get_the_author_meta('ID')); ?>" alt=""> 
+                                                    <img src="<?php  echo getuserpic(get_the_author_meta('ID')); ?>" alt=""> 
                                                 </div>
                                                 <div class="box-widget-content">
                                                     <div class="list-author-widget-text">

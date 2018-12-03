@@ -48,13 +48,10 @@
                     ?>
                     <div class="header-user-menu">
                         <div class="header-user-name">
-                            <span><img src="<?php echo get_avatar_url($inuser); ?>" alt=""></span>
+                            <span><img src="<?php //echo get_avatar_url($inuser); ?><?php echo getuserpic($inuser); ?>" alt=""></span>
                             Hello , <?php $dnuser = get_userdata($inuser); echo $dnuser->user_login; ?>
                         </div>
                         <ul>
-                            <?php if($GLOBALS['userisadmin'] == true){
-                                echo '<li><a href="'.admin_url().'"> WP Admin</a></li>';
-                            } ?>
                             <li><a href="<?php echo site_url(); ?>/dashboard"> Dasboard</a></li>
                             <li><a href="dashboard-add-listing.html"> Add Listing</a></li>
                             <li><a href="dashboard-bookings.html">  Bookings  </a></li>

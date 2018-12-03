@@ -57,6 +57,7 @@ get_header();
                                     <div class="profile-edit-container">
                                         <div class="profile-edit-header fl-wrap">
                                             <h4>My Account</h4>
+
                                         </div>
                                         <div class="custom-form">
                                             <label>First Name <i class="fa fa-user-o"></i></label>
@@ -141,22 +142,18 @@ get_header();
                                 </div>
                             </form>
                             <!-- profile-pic-container-->
-                            <?php
-                                $picurl = get_template_directory_uri().'/assets/images/avatar/avatar-bg.png';
-                                $picid = get_user_meta( get_current_user_id(), 'profile_pic', true );
-                                $picurl2 = wp_get_attachment_url( $picid );
-                                if(!empty($picurl2)){
-                                    $picurl = $picurl2;
-                                }
-                            ?>
                             <form action="<?php echo admin_url('admin-ajax.php'); ?>" class="profile-pic-form" method="post">
                                 <div class="col-md-2">
+                                    <div class="notification fl-wrap">
+                                        <p id="notiftext"></p>
+                                        <a class="notification-close" href="#"><i class="fa fa-times"></i></a>
+                                    </div>
                                     <div class="edit-profile-photo fl-wrap">
-                                        <img src="<?php echo $picurl; ?>" class="respimg" alt="">
+                                        <img id="previewing" src="<?php echo getuserpic(get_current_user_id()); ?>" class="respimg" alt="">
                                         <div class="change-photo-btn">
                                             <div class="photoUpload">
                                                 <span><i class="fa fa-upload"></i> Upload Picture</span>
-                                                <input type="file" name="profile-pic" class="upload" accept="image/*">
+                                                <input type="file" name="profile-pic" class="upload" id="userprofile_img" accept="image/*">
                                                 <input type="hidden" name="action" value="profile-pic-upload">
                                             </div>
                                             <div class="custom-form">

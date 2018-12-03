@@ -32,17 +32,13 @@ function redirect_wplogin(){
   }
 }
 
-add_action('init', 'redirect_wpadmin');
-function redirect_wpadmin(){
-  $GLOBALS['userisadmin'] = false;
-  $user = wp_get_current_user();
-  $allowed_roles = array('editor', 'administrator');
-  if( array_intersect($allowed_roles, $user->roles ) ) {
-    $GLOBALS['userisadmin'] = true;
-  }else{
+function user_restriction(){
+  if( is_admin() && !current_user_can( 'administrator' ) && !( defined( 'DOING_AJAX' ) && 'DOING_AJAX' )  ){
     wp_redirect(home_url()."/dashboard");
+    exit;
   }
 }
+add_action('init','user_restriction');
 /*==========================================================================================*/
 // add a link to the WP Toolbar
 function custom_toolbar_link($wp_admin_bar) {
@@ -99,6 +95,8 @@ function setPostViews($postID) {
 }
 /* Post Views Number END */
 
+/*==========================================================================================*/
+
 // Ajax Login Submission
 add_action('wp_ajax_nopriv_citybooklogin', 'citybook_login_func');
 add_action('wp_ajax_citybooklogin', 'citybook_login_func');
@@ -137,6 +135,7 @@ function citybook_reset_func (){
   die();
 }
 
+
 add_action('wp_ajax_nopriv_citybook-editprofile', 'citybook_editpro_func');
 add_action('wp_ajax_citybook-editprofile', 'citybook_editpro_func');
 
@@ -156,53 +155,51 @@ function citybook_editpro_func (){
 
 add_action('wp_ajax_nopriv_profile-pic-upload', 'citybook_profile_pic_func');
 add_action('wp_ajax_profile-pic-upload', 'citybook_profile_pic_func');
-$GLOBALS['x'] = false;
 function citybook_profile_pic_func (){
 
-  $save = $_POST['save-profile'];
-
-  if($save == 'yes'){
-    // From Save Button
-    
-    do {
-      $picid = upload_user_file($_FILES['profile-pic']);
-    } while ($GLOBALS['x'] = true);
-    
-    $userid = get_current_user_id();
-    $metakey = 'profile_pic';
-
-    if ( metadata_exists( 'user', $userid, $metakey ) ) {
-      update_user_meta( $userid, $metakey, $picid);
-    }else{
-      add_user_meta( $userid, $metakey, $picid);
-    }
-
-    $picurl = get_template_directory_uri().'/assets/images/avatar/avatar-bg.png';
-    $picid = get_user_meta( get_current_user_id(), 'profile_pic', true );
-    $picurl2 = wp_get_attachment_url( $picid );
-    if(!empty($picurl2)){
-        $picurl = $picurl2;
-    }
-    
-    echo $picurl;
+  //echo 
+  if(isset($_FILES["profile-pic"]["type"])){
+  $validextensions = array("jpeg", "jpg", "png");
+  $temporary = explode(".", $_FILES["profile-pic"]["name"]);
+  $file_extension = end($temporary);
   
+  if ((($_FILES["profile-pic"]["type"] == "image/png") || ($_FILES["profile-pic"]["type"] == "image/jpg") || ($_FILES["profile-pic"]["type"] == "image/jpeg")) && ($_FILES["profile-pic"]["size"] < 100000) && in_array($file_extension, $validextensions))
+  {
+      if ($_FILES["profile-pic"]["error"] > 0){
+        echo "error1";
+      }else{
+        if ( !metadata_exists( 'user', $userid, $metakey ) ) {
+          $picid = upload_user_file($_FILES['profile-pic']);
+        }
 
+        $userid = get_current_user_id();
+        $metakey = 'profile_pic';
+
+        if ( metadata_exists( 'user', $userid, $metakey ) ) {
+          update_user_meta( $userid, $metakey, $picid);
+        }else{
+          add_user_meta( $userid, $metakey, $picid);
+        }
+
+        echo "success";
+      }
   }else{
-    // From Upload Button
-    
-    $file_tmp = $_FILES['profile-pic']['tmp_name'];
-    $file_name = $_FILES['profile-pic']['name'];
-    $path = ABSPATH . 'wp-content/themes/citybook/assets/images/temp';
-    $uploaded_loc = $path . '/' . $file_name;
-    move_uploaded_file($file_tmp, $uploaded_loc);
-
-    $file_path = get_template_directory_uri() . '/assets/images/temp/' . $file_name;
-    
-    echo $file_path;
+    echo "error2";
   }
+}
 
 
   die();
+}
+
+function getuserpic($userid){
+  $pic_url = get_template_directory_uri().'/assets/images/avatar/avatar-bg.png';
+  $pic_id = get_user_meta( $userid, 'profile_pic', true );
+  $picurl2 = wp_get_attachment_url( $pic_id );
+  if(!empty($picurl2)){
+      $pic_url = $picurl2;
+  }
+  return $pic_url;
 }
 
 /*==========================================================================================*/
