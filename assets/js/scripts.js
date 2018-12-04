@@ -854,15 +854,15 @@ jQuery(document).ready(function(){
         });
     });*/
 
-    jQuery('.notification').hide();
+    jQuery('#pic_notification').hide();
 
     jQuery('.profile-pic-form').on('submit', function(e){
         e.preventDefault();
         $('#notiftext').text('');
         if( document.getElementById("userprofile_img").files.length == 0 ){
-            $('.notification').toggleClass("reject");
+            $('#pic_notification').toggleClass("reject");
             $('#notiftext').text('Select a valid Image');
-            $('.notification').show();
+            $('#pic_notification').show();
         }else{
             var url = jQuery(this).attr('action');
             $.ajax({
@@ -899,9 +899,9 @@ jQuery(document).ready(function(){
             var match= ["image/jpeg","image/png","image/jpg"];
             if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
                 jQuery('#previewing').attr('src','/wp-content/themes/citybook/assets/images/avatar/avatar-bg.png');
-                $('.notification').addClass("reject");
+                $('#pic_notification').addClass("reject");
                 $('#notiftext').text('Please Select A valid Image!');
-                $('.notification').show();
+                $('#pic_notification').show();
                 return false;
             }else{
                 var reader = new FileReader();

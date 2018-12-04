@@ -47,7 +47,10 @@ get_header();
                                         </ul>
                                     </div>
                                     <!-- user-profile-menu end-->                                        
-                                    <a href="#" class="log-out-btn">Log Out</a>
+                                    <a href="<?php 
+                            $protocol = $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+                            $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                            echo wp_logout_url( $url ); ?>" class="log-out-btn">Log Out</a>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +58,8 @@ get_header();
                             <!-- profile-edit-container--> 
                             <div class="profile-edit-container">
                                 <div class="profile-edit-header fl-wrap" style="margin-top:30px">
-                                    <h4>Helo , <span>Alisa</span></h4>
+                                    <h4>Helo , <span><?php $inuser = get_current_user_id();
+                                    $dnuser = get_userdata($inuser); echo $dnuser->user_login; ?></span></h4>
                                 </div>
                                 <div class="notification success fl-wrap">
                                     <p>Your listing <a href="#">Fitness Center Brooklyn</a> has been approved!</p>

@@ -3,7 +3,7 @@
 
 <head>
 <?php wp_head(); ?>
-
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" type="image/x-icon" />
 </head>
     <body>
         <!--loader-->

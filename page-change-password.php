@@ -86,7 +86,10 @@ get_header();
                                         </ul>
                                     </div>
                                     <!-- user-profile-menu end-->                                        
-                                    <a href="#" class="log-out-btn">Log Out</a>
+                                    <a href="<?php 
+                            $protocol = $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+                            $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                            echo wp_logout_url( $url ); ?>" class="log-out-btn">Log Out</a>
                                 </div>
                             </div>
                         </div>
