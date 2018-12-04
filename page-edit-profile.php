@@ -5,54 +5,6 @@ if(!is_user_logged_in()){
 	wp_redirect(home_url());
 }
 get_header();
-/* Get user info. */
-global $current_user, $wp_roles;
-//get_currentuserinfo(); //deprecated since 3.1
-
-/* Load the registration file. */
-//require_once( ABSPATH . WPINC . '/registration.php' ); //deprecated since 3.1
-$error = array();    
-/* If profile was saved, update profile. */
-if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
-
-    /* Update user password. */
-    if ( !empty($_POST['pass1'] ) && !empty( $_POST['pass2'] ) ) {
-        if ( $_POST['pass1'] == $_POST['pass2'] )
-            wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => esc_attr( $_POST['pass1'] ) ) );
-        else
-            $error[] = __('The passwords you entered do not match.  Your password was not updated.', 'profile');
-    }
-
-    /* Update user information. */
-    if ( !empty( $_POST['url'] ) )
-        wp_update_user( array( 'ID' => $current_user->ID, 'user_url' => esc_url( $_POST['url'] ) ) );
-    if ( !empty( $_POST['email'] ) ){
-        if (!is_email(esc_attr( $_POST['email'] )))
-            $error[] = __('The Email you entered is not valid.  please try again.', 'profile');
-        elseif(email_exists(esc_attr( $_POST['email'] )) != $current_user->id )
-            $error[] = __('This email is already used by another user.  try a different one.', 'profile');
-        else{
-            wp_update_user( array ('ID' => $current_user->ID, 'user_email' => esc_attr( $_POST['email'] )));
-        }
-    }
-
-    if ( !empty( $_POST['first-name'] ) )
-        update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
-    if ( !empty( $_POST['last-name'] ) )
-        update_user_meta($current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
-    if ( !empty( $_POST['description'] ) )
-        update_user_meta( $current_user->ID, 'description', esc_attr( $_POST['description'] ) );
-
-    /* Redirect so the page will show updated info.*/
-  /*I am not Author of this Code- i dont know why but it worked for me after changing below line to if ( count($error) == 0 ){ */
-    if ( count($error) == 0 ) {
-        //action hook for plugins and extra fields saving
-        do_action('edit_user_profile_update', $current_user->ID);
-        wp_redirect( get_permalink() );
-        exit;
-    }
-}
-?>
 ?>
 
 <!-- wrapper -->    
@@ -121,15 +73,15 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
                                             <label>Username <i class="fa fa-user-o"></i></label>
                                             <input type="text" placeholder="Username" disabled="disabled" value="<?php the_author_meta( 'user_login', $current_user->ID ); ?>"/>
                                             <label>Email Address<i class="fa fa-envelope-o"></i>  </label>
-                                            <input type="text" placeholder="email@domain.com" value=""/>
+                                            <input type="text" placeholder="email@domain.com" name="email" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>"/>
                                             <label>Phone<i class="fa fa-phone"></i>  </label>
-                                            <input type="text" placeholder="+7(123)987654" value=""/>
-                                            <label> Adress <i class="fa fa-map-marker"></i>  </label>
-                                            <input type="text" placeholder="USA 27TH Brooklyn NY" value=""/>
+                                            <input type="text" placeholder="+7(123)987654" value="<?php the_author_meta( 'phone', $current_user->ID ); ?>"/>
+                                            <label> Address <i class="fa fa-map-marker"></i>  </label>
+                                            <input type="text" placeholder="USA 27TH Brooklyn NY" value="<?php the_author_meta( 'address', $current_user->ID ); ?>"/>
                                             <label> Website <i class="fa fa-globe"></i>  </label>
-                                            <input type="text" placeholder="www.domain.com" value=""/>  
-                                            <label> Notes</label>                                              
-                                            <textarea cols="40" rows="3" placeholder="About Me"></textarea>
+                                            <input type="text" placeholder="www.domain.com" name="url" id="url" value="<?php the_author_meta( 'user_url', $current_user->ID ); ?>"/>
+                                            <label> About Me</label>                                              
+                                            <textarea cols="40" rows="3" placeholder="About Me" name="description" id="description"><?php the_author_meta( 'description', $current_user->ID ); ?></textarea>
                                         </div>
                                     </div>
                                     <!-- profile-edit-container end--> 
@@ -181,13 +133,13 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
                                         </div>
                                         <div class="custom-form">
                                             <label>Facebook <i class="fa fa-facebook"></i></label>
-                                            <input type="text" placeholder="https://www.facebook.com/" value=""/>
+                                            <input type="text" placeholder="https://www.facebook.com/" value="<?php the_author_meta( 'facebook', $current_user->ID ); ?>"/>
                                             <label>Twitter<i class="fa fa-twitter"></i>  </label>
-                                            <input type="text" placeholder="https://twitter.com/" value=""/>
+                                            <input type="text" placeholder="https://twitter.com/" value="<?php the_author_meta( 'twitter', $current_user->ID ); ?>"/>
                                             <label>Vkontakte<i class="fa fa-vk"></i>  </label>
-                                            <input type="text" placeholder="vk.com" value=""/>
+                                            <input type="text" placeholder="vk.com" value="<?php the_author_meta( 'vkontakte', $current_user->ID ); ?>"/>
                                             <label> Whatsapp <i class="fa fa-whatsapp"></i>  </label>
-                                            <input type="text" placeholder="https://www.whatsapp.com" value=""/>
+                                            <input type="text" placeholder="https://www.whatsapp.com" value="<?php the_author_meta( 'whatsapp', $current_user->ID ); ?>"/>
                                             <input type="hidden" value="citybook-editprofile" name="action">
                                             <button type="submit" class="btn big-btn color-bg flat-btn">Save Changes<i class="fa fa-angle-right"></i></button>
                                         </div>
