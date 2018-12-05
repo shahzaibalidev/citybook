@@ -804,24 +804,45 @@ jQuery(document).ready(function(){
         });
 
     });
+    
+    jQuery('#noti-success').hide();
+    jQuery('#noti-reject').hide();
 
     jQuery('.edit-profile-form').on('submit', function(e){
         e.preventDefault();
-        var url = jQuery(this).attr('action');
-        var data = new FormData(this);
+        $('#noti-success-text').text('');
+        $('#noti-reject-text').text('');
+        if( $('#first-name').val().length === 0 ){
+            $('#noti-reject-text').text('Please Enter First Name');
+            $('#noti-reject').show();
+        }else if( $('#last-name').val().length === 0 ){
+            $('#noti-reject-text').text('Please Enter Last Name');
+            $('#noti-reject').show();
+        }else if( $('#email').val().length === 0 ){
+            $('#noti-reject-text').text('Please Enter Email');
+            $('#noti-reject').show();
+        }else if( $('#phone').val().length === 0 ){
+            $('#noti-reject-text').text('Please Enter Phone Number');
+            $('#noti-reject').show();
+        }else{
+            $('#noti-reject').hide();
+            $('#noti-success-text').text('success!');
+            $('#noti-success').show();
+            var url = jQuery(this).attr('action');
+            var data = new FormData(this);
 
-        $.ajax({
-            url: url,      
-            type: 'post',                   
-            data: data,
-            processData: false,
-            contentType: false,       
-            success : function( response ) {
-                alert(response);
-                
-            }
-        });
-
+            $.ajax({
+                url: url,      
+                type: 'post',                   
+                data: data,
+                processData: false,
+                contentType: false,       
+                success : function( response ) {
+                    alert(response);
+                    
+                }
+            });
+        }
     });
 
     /*jQuery('input[name="profile-pic"]').on('change', function(){

@@ -60,8 +60,12 @@ get_header();
                                     <div class="profile-edit-container">
                                         <div class="profile-edit-header fl-wrap">
                                             <h4>My Account</h4>
-                                            <div class="notification success fl-wrap">
-                                                <p>Your listing <a href="#">Fitness Center Brooklyn</a> has been approved!</p>
+                                            <div class="notification success fl-wrap" id="noti-success">
+                                                <p id="noti-success-text"></p>
+                                                <a class="notification-close" href="#"><i class="fa fa-times"></i></a>
+                                            </div>
+                                            <div class="notification reject fl-wrap" id="noti-reject">
+                                                <p id="noti-reject-text"></p>
                                                 <a class="notification-close" href="#"><i class="fa fa-times"></i></a>
                                             </div>
                                         </div>
@@ -75,13 +79,13 @@ get_header();
                                             <label>Email Address<i class="fa fa-envelope-o"></i>  </label>
                                             <input type="text" placeholder="email@domain.com" name="email" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>"/>
                                             <label>Phone<i class="fa fa-phone"></i>  </label>
-                                            <input type="text" placeholder="+7(123)987654" value="<?php the_author_meta( 'phone', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="+7(123)987654" name="phone" id="phone" value="<?php the_author_meta( 'phone', $current_user->ID ); ?>"/>
                                             <label> Address <i class="fa fa-map-marker"></i>  </label>
-                                            <input type="text" placeholder="USA 27TH Brooklyn NY" value="<?php the_author_meta( 'address', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="USA 27TH Brooklyn NY" name="address" value="<?php the_author_meta( 'address', $current_user->ID ); ?>"/>
                                             <label> Website <i class="fa fa-globe"></i>  </label>
-                                            <input type="text" placeholder="www.domain.com" name="url" id="url" value="<?php the_author_meta( 'user_url', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="www.domain.com" name="url" value="<?php the_author_meta( 'user_url', $current_user->ID ); ?>"/>
                                             <label> About Me</label>                                              
-                                            <textarea cols="40" rows="3" placeholder="About Me" name="description" id="description"><?php the_author_meta( 'description', $current_user->ID ); ?></textarea>
+                                            <textarea cols="40" rows="3" placeholder="About Me" name="description"><?php the_author_meta( 'description', $current_user->ID ); ?></textarea>
                                         </div>
                                     </div>
                                     <!-- profile-edit-container end--> 
@@ -133,13 +137,13 @@ get_header();
                                         </div>
                                         <div class="custom-form">
                                             <label>Facebook <i class="fa fa-facebook"></i></label>
-                                            <input type="text" placeholder="https://www.facebook.com/" value="<?php the_author_meta( 'facebook', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="https://www.facebook.com/" name="facebook" value="<?php the_author_meta( 'facebook', $current_user->ID ); ?>"/>
                                             <label>Twitter<i class="fa fa-twitter"></i>  </label>
-                                            <input type="text" placeholder="https://twitter.com/" value="<?php the_author_meta( 'twitter', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="https://twitter.com/" name="twitter" value="<?php the_author_meta( 'twitter', $current_user->ID ); ?>"/>
                                             <label>Vkontakte<i class="fa fa-vk"></i>  </label>
-                                            <input type="text" placeholder="vk.com" value="<?php the_author_meta( 'vkontakte', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="vk.com" name="vkontakte" value="<?php the_author_meta( 'vkontakte', $current_user->ID ); ?>"/>
                                             <label> Whatsapp <i class="fa fa-whatsapp"></i>  </label>
-                                            <input type="text" placeholder="https://www.whatsapp.com" value="<?php the_author_meta( 'whatsapp', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="https://www.whatsapp.com" name="whatsapp" value="<?php the_author_meta( 'whatsapp', $current_user->ID ); ?>"/>
                                             <input type="hidden" value="citybook-editprofile" name="action">
                                             <button type="submit" class="btn big-btn color-bg flat-btn">Save Changes<i class="fa fa-angle-right"></i></button>
                                         </div>
