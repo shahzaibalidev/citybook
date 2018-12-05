@@ -96,7 +96,7 @@ get_header();
                                                 <div class="col-md-4">
                                                     <div class="add-list-media-header">
                                                         <label class="radio inline"> 
-                                                        <input type="radio" name="gender">
+                                                        <input type="radio" name="gender" disabled="disabled">
                                                         <span>Basic 99$</span> 
                                                         </label>
                                                     </div>
@@ -116,7 +116,7 @@ get_header();
                                                 <div class="col-md-4">
                                                     <div class="add-list-media-header">
                                                         <label class="radio inline"> 
-                                                        <input type="radio" name="gender">
+                                                        <input type="radio" name="gender" disabled="disabled">
                                                         <span>Professional 149$</span> 
                                                         </label>
                                                     </div>
