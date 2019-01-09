@@ -83,7 +83,7 @@ get_header();
                                             <label> Address <i class="fa fa-map-marker"></i>  </label>
                                             <input type="text" placeholder="USA 27TH Brooklyn NY" name="address" value="<?php the_author_meta( 'address', $current_user->ID ); ?>"/>
                                             <label> Website <i class="fa fa-globe"></i>  </label>
-                                            <input type="text" placeholder="www.domain.com" name="url" value="<?php the_author_meta( 'user_url', $current_user->ID ); ?>"/>
+                                            <input type="text" placeholder="www.domain.com" name="user-url" value="<?php the_author_meta( 'user_url', $current_user->ID ); ?>"/>
                                             <label> About Me</label>                                              
                                             <textarea cols="40" rows="3" placeholder="About Me" name="description"><?php the_author_meta( 'description', $current_user->ID ); ?></textarea>
                                         </div>

@@ -825,9 +825,7 @@ jQuery(document).ready(function(){
             $('#noti-reject-text').text('Please Enter Phone Number');
             $('#noti-reject').show();
         }else{
-            $('#noti-reject').hide();
-            $('#noti-success-text').text('success!');
-            $('#noti-success').show();
+            
             var url = jQuery(this).attr('action');
             var data = new FormData(this);
 
@@ -838,7 +836,10 @@ jQuery(document).ready(function(){
                 processData: false,
                 contentType: false,       
                 success : function( response ) {
-                    alert(response);
+                    $('#noti-reject').hide();
+            $('#noti-success-text').text('success!');
+            $('#noti-success').show();
+                   // alert(response);
                     
                 }
             });

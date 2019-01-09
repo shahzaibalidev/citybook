@@ -145,21 +145,55 @@ function citybook_editpro_func (){
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $address = $_POST['address'];
-  $url = $_POST['url'];
+  $url = $_POST['user-url'];
   $description = $_POST['description'];
   $facebook = $_POST['facebook'];
   $twitter = $_POST['twitter'];
   $vkontakte = $_POST['vkontakte'];
   $whatsapp = $_POST['whatsapp'];
-  wp_send_json( array(
+
+  $userid = get_current_user_id();
+
+  
+
+  if($first_name){
+    update_user_meta( $userid, 'first_name', $first_name);
+  }
+  if($last_name){
+  update_user_meta( $userid, 'last_name', $last_name);
+  }
+  if($email){
+  update_user_meta( $userid, 'user_email', $email);
+  }
+  if($phone){
+  update_user_meta( $userid, 'phone', $phone);
+  }
+  if($address){
+  update_user_meta( $userid, 'address', $address);
+  }
+  if($url){
+  update_user_meta( $userid, 'user_url', $url);
+  }
+  if($description){
+  update_user_meta( $userid, 'description', $description);
+  }
+  if($facebook){
+  update_user_meta( $userid, 'facebook', $facebook);
+  }
+  if($twitter){
+  update_user_meta( $userid, 'twitter', $twitter);
+  }
+  if($vkontakte){
+  update_user_meta( $userid, 'vkontakte', $vkontakte);
+  }
+  if($whatsapp){
+  update_user_meta( $userid, 'whatsapp', $whatsapp);
+  }
+
+  /*wp_send_json( array(
         'loggedin' => $first_name,
         'message'  => $last_name,
-    ) );
-
-
-
-  echo $description;
-
+    ) );*/
   die();
 }
 
